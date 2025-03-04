@@ -29,6 +29,10 @@ public class Proyecto {
 	@Min(100)
 	private Float metaProyecto;
 	
+	//DATOS PARA DEPOSITAR
+	
+	@NotBlank(message="Por favor ingresa una cuenta bancaria valida.")
+	private String datosBancarios;
 	
 	
 	//RELACIONES 
