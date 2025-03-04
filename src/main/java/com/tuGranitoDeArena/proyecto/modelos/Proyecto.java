@@ -36,8 +36,7 @@ public class Proyecto {
 	
 	
 	//RELACIONES 
-	
-	
+
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="empresa_id")
 	private Empresa creador;
@@ -53,6 +52,17 @@ public class Proyecto {
 
 	
 	//GETTERS Y SETTERS
+	
+	
+	public String getDatosBancarios() {
+		return datosBancarios;
+	}
+
+
+	public void setDatosBancarios(String datosBancarios) {
+		this.datosBancarios = datosBancarios;
+	}
+
 	
 	public String getNombreProyecto() {
 		return nombreProyecto;

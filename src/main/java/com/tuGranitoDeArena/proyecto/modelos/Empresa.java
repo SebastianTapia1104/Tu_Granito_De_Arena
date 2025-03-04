@@ -85,14 +85,7 @@ import jakarta.validation.constraints.Size;
 		private String regionEmpresa;
 		
 		private String comunaEmpresa;
-		
-		
-		//DATOS PARA DEPOSITAR
-		
-		@NotBlank(message="Por favor ingresa una cuenta bancaria valida.")
-		private String datosBancarios;
-		
-					
+							
 		
 		//RELACIONES
 		
@@ -306,22 +299,6 @@ import jakarta.validation.constraints.Size;
 		public void setComunaEmpresa(String comunaEmpresa) {
 			this.comunaEmpresa = comunaEmpresa;
 		}
-
-
-
-
-		public String getDatosBancarios() {
-			return datosBancarios;
-		}
-
-
-
-
-		public void setDatosBancarios(String datosBancarios) {
-			this.datosBancarios = datosBancarios;
-		}
-
-
 
 
 		public List<Proyecto> getProyectosCreados() {
