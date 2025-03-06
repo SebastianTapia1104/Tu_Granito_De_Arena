@@ -12,14 +12,14 @@ public class LoginEmpresa {
 	private String passwordLogin;
 	
 	@NotBlank(message="El rut de contacto es obligatorio.")
-	private String rutContacto;
+	private String rutEmpresa;
 	
-	public String getRutContacto() {
-		return rutContacto;
+	public String getRutEmpresa() {
+		return rutEmpresa;
 	}
 
-	public void setRutContacto(String rutContacto) {
-		this.rutContacto = rutContacto;
+	public void setRutEmpresa(String rutEmpresa) {
+		this.rutEmpresa = rutEmpresa;
 	}
 
 	public LoginEmpresa() {}
