@@ -11,7 +11,7 @@ public class LoginEmpresa {
 		
 	private String passwordLogin;
 	
-	@NotBlank(message="El rut de contacto es obligatorio.")
+	@NotBlank(message="El rut de la empresa es obligatorio.")
 	private String rutEmpresa;
 	
 	public String getRutEmpresa() {
