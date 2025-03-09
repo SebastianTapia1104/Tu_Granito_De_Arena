@@ -79,6 +79,14 @@ import jakarta.validation.constraints.Size;
 		@Size(min=8, max=100, message="La dirección debe tener al menos 8 caracteres.")
 		private String direccionEmpresa;
 		
+		@NotBlank(message = "El número de celular es obligatorio")
+	    @Size(min = 10, max = 15, message = "El número debe tener entre 10 y 15 dígitos")
+	    @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "El número debe iniciar con '+' opcional y contener entre 10 y 15 dígitos")
+		private String telefonoEmpresa;
+		
+		@NotBlank(message="Por favor ingrese un país.")
+		private String pais;
+		
 		//DEBEN HACERSE EN EL FRONT-END CON SELECT
 		
 		

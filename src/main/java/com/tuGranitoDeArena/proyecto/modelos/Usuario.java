@@ -57,6 +57,17 @@ public class Usuario {
 			   inverseJoinColumns= @JoinColumn(name="proyecto_id"))
 	private List<Proyecto> donaciones;
 
+	@NotBlank(message="Por favor ingresa tu pais")
+	private String pais;
+	
+	//Tiene que ser una opción en el front end de select
+	private String genero;
+	
+	@NotBlank(message = "El número de celular es obligatorio")
+    @Size(min = 10, max = 15, message = "El número debe tener entre 10 y 15 dígitos")
+    @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "El número debe iniciar con '+' opcional y contener entre 10 y 15 dígitos")
+	private String telefono;
+	
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
