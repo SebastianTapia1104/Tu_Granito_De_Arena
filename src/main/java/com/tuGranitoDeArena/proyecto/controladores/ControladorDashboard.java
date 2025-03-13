@@ -22,6 +22,9 @@ public class ControladorDashboard {
 		if(session.getAttribute("usuarioEnSesion") == null){
 			return "redirect:/";
 		}
+		else if(session.getAttribute("empresaEnSesion") == null){
+			return "redirect:/";
+		}
 		
 		//Generar la lista con los proyectos
 		List<Proyecto> proyectos = servProyecto.todosLosProyectos();
