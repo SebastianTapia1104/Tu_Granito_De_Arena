@@ -1,5 +1,6 @@
 package com.tuGranitoDeArena.proyecto.modelos;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -48,6 +49,9 @@ public class Usuario {
 	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$", message = "El password necesita incluir al menos una letra mayúscula, una letra minúscula y un número")
 	private String password;
 	
+	//Agregar en JSP SELECT DATE
+	private LocalDate cumpleanios;
+	
 	@Transient
 	private String confirmacion;
 	
@@ -76,14 +80,73 @@ public class Usuario {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
-	
+
+
 	//CONSTRUCTOR VACIO
 	public Usuario() {}
 	
 	
 	
-	// GETTERS Y SETTERS 
+	// GETTERS Y SETTERS 	
 	
+	public LocalDate getCumpleanios() {
+		return cumpleanios;
+	}
+
+
+
+	public void setCumpleanios(LocalDate cumpleanios) {
+		this.cumpleanios = cumpleanios;
+	}
+
+
+
+	public List<Proyecto> getDonaciones() {
+		return donaciones;
+	}
+
+
+
+	public void setDonaciones(List<Proyecto> donaciones) {
+		this.donaciones = donaciones;
+	}
+
+
+
+	public String getPais() {
+		return pais;
+	}
+
+
+
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+
+
+
+	public String getGenero() {
+		return genero;
+	}
+
+
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
 	public Long getId() {
 		return id;
 	}

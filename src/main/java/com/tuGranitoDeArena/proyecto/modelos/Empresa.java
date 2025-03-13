@@ -115,11 +115,33 @@ import jakarta.validation.constraints.Size;
 		
 		//GETTERS Y SETTERS
 		
+		
+		
 		public Long getId() {
 			return id;
 		}
 
 
+
+
+		public String getTelefonoEmpresa() {
+			return telefonoEmpresa;
+		}
+
+
+		public void setTelefonoEmpresa(String telefonoEmpresa) {
+			this.telefonoEmpresa = telefonoEmpresa;
+		}
+
+
+		public String getPais() {
+			return pais;
+		}
+
+
+		public void setPais(String pais) {
+			this.pais = pais;
+		}
 
 
 		public void setId(Long id) {

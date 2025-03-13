@@ -38,6 +38,9 @@ public class Proyecto {
 	@Min(100)
 	private Float metaProyecto;
 	
+	@NotBlank(message="Por favor proporciona una URL válida con la imagen.")
+	private String urlImagen;
+	
 	//DATOS PARA DEPOSITAR
 	
 	@NotBlank(message="Por favor ingresa una cuenta bancaria valida.")
@@ -75,8 +78,60 @@ public class Proyecto {
 	//GETTERS Y SETTERS
 	
 	
+	
+	
 	public String getDatosBancarios() {
 		return datosBancarios;
+	}
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getUrlImagen() {
+		return urlImagen;
+	}
+
+
+	public void setUrlImagen(String urlImagen) {
+		this.urlImagen = urlImagen;
+	}
+
+
+	public String getBanco() {
+		return banco;
+	}
+
+
+	public void setBanco(String banco) {
+		this.banco = banco;
+	}
+
+
+	public String getTipoDeCuenta() {
+		return tipoDeCuenta;
+	}
+
+
+	public void setTipoDeCuenta(String tipoDeCuenta) {
+		this.tipoDeCuenta = tipoDeCuenta;
+	}
+
+
+	public String getNumeroCuenta() {
+		return numeroCuenta;
+	}
+
+
+	public void setNumeroCuenta(String numeroCuenta) {
+		this.numeroCuenta = numeroCuenta;
 	}
 
 
