@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.tuGranitoDeArena.proyecto.modelos.Proyecto;
 import com.tuGranitoDeArena.proyecto.servicios.ServicioProyectos;
@@ -34,4 +35,26 @@ public class ControladorDashboard {
 		
 		return "dashboard.jsp";
 	}
+	
+	@GetMapping("/detalle/{id}")
+	public String detalle(HttpSession session,
+							Model model,
+							@PathVariable("id")Long id) {
+		if(session.getAttribute("usuarioEnSesion") == null){ //verificacion session
+			return "redirect:/";
+		}
+		else if(session.getAttribute("empresaEnSesion") == null){
+			return "redirect:/";
+		}
+		
+		//Busca proyecto con id
+		Proyecto proyecto = servProyecto.buscarProyecto(id);
+		
+		//Anade el proyecto con model y lo manda a detalle.jsp
+		model.addAttribute("proyecto", proyecto);
+		
+		return "detalle.jsp";
+	}
+	
+	
 }
