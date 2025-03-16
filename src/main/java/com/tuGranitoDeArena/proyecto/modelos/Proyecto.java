@@ -2,7 +2,6 @@ package com.tuGranitoDeArena.proyecto.modelos;
 
 import java.util.List;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
