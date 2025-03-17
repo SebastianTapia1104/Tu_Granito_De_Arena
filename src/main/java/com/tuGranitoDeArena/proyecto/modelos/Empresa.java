@@ -229,7 +229,8 @@ import jakarta.validation.constraints.Size;
 		public void setEmailContacto(String emailContacto) {
 			this.emailContacto = emailContacto;
 		}
-		public String getTelefonoContacto() {
+
+		public String getTelefonoContacto() {
 			return telefonoContacto;
 		}
 

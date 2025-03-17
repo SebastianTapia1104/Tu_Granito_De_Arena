@@ -89,6 +89,8 @@ public class Usuario {
 	
 	// GETTERS Y SETTERS 	
 	
+	
+	
 	public LocalDate getCumpleanios() {
 		return cumpleanios;
 	}

@@ -91,6 +91,26 @@ public class Proyecto {
 	}
 
 
+	public Long getPersonasBeneficiadas() {
+		return personasBeneficiadas;
+	}
+
+
+	public void setPersonasBeneficiadas(Long personasBeneficiadas) {
+		this.personasBeneficiadas = personasBeneficiadas;
+	}
+
+
+	public BigDecimal getCantidadRecaudada() {
+		return cantidadRecaudada;
+	}
+
+
+	public void setCantidadRecaudada(BigDecimal cantidadRecaudada) {
+		this.cantidadRecaudada = cantidadRecaudada;
+	}
+
+
 	public Long getId() {
 		return id;
 	}
