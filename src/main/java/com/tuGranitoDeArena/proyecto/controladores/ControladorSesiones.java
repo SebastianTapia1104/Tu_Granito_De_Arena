@@ -27,7 +27,10 @@ public class ControladorSesiones {
 	private ServicioEmpresas servEmpresas;	
 	
 	@GetMapping("/")
-	public String index() {
+	public String index(HttpSession session) {
+		if(session.getAttribute("usuarioEnSesion") != null || session.getAttribute("empresaEnSesion") != null){
+			return "redirect:/dashboard";
+		}
 		return "index.jsp";
 	}
 	
