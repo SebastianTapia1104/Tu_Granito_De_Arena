@@ -31,8 +31,12 @@ import jakarta.validation.constraints.Size;
 		private Long id;
 		
 		@NotBlank(message="Por favor ingresa el nombre/razón social de tu empresa.")
-		@Size(min=2, max=100, message="El nombre/razón social de tu empresa debe tener al menos 2 caracteres.")
-		private String nombreORazonSocial;
+		@Size(min=2, max=100, message="El nombre tu empresa debe tener al menos 2 caracteres.")
+		private String nombreEmpresa;
+		
+		@NotBlank(message="Por favor ingresa el nombre/razón social de tu empresa.")
+		@Size(min=2, max=100, message="La razón social de tu empresa debe tener al menos 2 caracteres.")
+		private String RazonSocial;
 		
 		@NotBlank(message="Por favor ingresa un rut de empresa válido.")
 		@Size(min=8, max=100, message="El rut debe tener al menos 8 caracteres.")
@@ -124,6 +128,26 @@ import jakarta.validation.constraints.Size;
 
 
 
+		public String getNombreEmpresa() {
+			return nombreEmpresa;
+		}
+
+
+		public void setNombreEmpresa(String nombreEmpresa) {
+			this.nombreEmpresa = nombreEmpresa;
+		}
+
+
+		public String getRazonSocial() {
+			return RazonSocial;
+		}
+
+
+		public void setRazonSocial(String razonSocial) {
+			RazonSocial = razonSocial;
+		}
+
+
 		public String getTelefonoEmpresa() {
 			return telefonoEmpresa;
 		}
@@ -147,22 +171,6 @@ import jakarta.validation.constraints.Size;
 		public void setId(Long id) {
 			this.id = id;
 		}
-
-
-
-
-		public String getNombreORazonSocial() {
-			return nombreORazonSocial;
-		}
-
-
-
-
-		public void setNombreORazonSocial(String nombreORazonSocial) {
-			this.nombreORazonSocial = nombreORazonSocial;
-		}
-
-
 
 
 		public String getRutEmpresa() {
