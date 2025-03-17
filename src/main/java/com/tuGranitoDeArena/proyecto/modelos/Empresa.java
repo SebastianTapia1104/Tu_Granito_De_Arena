@@ -104,10 +104,6 @@ import jakarta.validation.constraints.Size;
 
 		@NotBlank(message="Por favor ingrese un país.")
 		private String pais;
-		
-		//DEBEN HACERSE EN EL FRONT-END CON SELECT
-		
-		private Boolean terminosYCondicones;
 				
 		//RELACIONES
 		
@@ -301,14 +297,6 @@ import jakarta.validation.constraints.Size;
 
 		public void setGeneroContacto(String generoContacto) {
 			this.generoContacto = generoContacto;
-		}
-
-		public Boolean getTerminosYCondicones() {
-			return terminosYCondicones;
-		}
-
-		public void setTerminosYCondicones(Boolean terminosYCondicones) {
-			this.terminosYCondicones = terminosYCondicones;
 		}
 
 		@PrePersist //ANTES de crear al usuario 

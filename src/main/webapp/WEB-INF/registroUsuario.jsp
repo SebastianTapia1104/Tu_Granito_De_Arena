@@ -208,7 +208,7 @@
 			<div class="col-6">
 	            <h1>Registro de Usuario</h1>
 	
-	            <form:form action="/registro" method="POST" modelAttribute="nuevoUsuario">
+	            <form:form action="/registroSesionUsuario" method="POST" modelAttribute="nuevoUsuario">
 				
 				<!-- Nombre -->
 				<div class="mb-3">
@@ -248,7 +248,7 @@
 				<!-- Cumpleaños -->
 				<div class="mb-3">
 					<form:label path="cumpleanios">Fecha de Nacimiento:</form:label>
-					<form:input type="date" path="cumpleanios" type="date" class="form-control"/>
+					<form:input type="date" path="cumpleanios" class="form-control"/>
 					<form:errors path="cumpleanios" class="text-danger"/>
 				</div>
 				

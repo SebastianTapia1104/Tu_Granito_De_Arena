@@ -293,12 +293,6 @@
 						<form:input path="telefonoContacto" class="form-control" />
 						<form:errors path="telefonoContacto" class="text-danger" />
 					</div>
-					<div>
-						<form:label path="terminosYCondicones">Términos Y Condicones:</form:label>
-						<form:input type="checkbox" path="terminosYCondicones" class="form-control" checked/>
-						<form:errors path="terminosYCondicones" class="text-danger" />
-					</div>
-					<p>Para más información leer <br><a href="#">Términos y Condiciones</a>.</p>
 					<input type="submit" class="btn btn-primary mt-3" value="Registrarme" >
 				</form:form>
 			</div>
