@@ -204,49 +204,85 @@
 
 <body>
   <div class="container">
-    <header class="d-flex justify-content-between align-center">
-      <h2>
-        <img src="https://i.ibb.co/DgYwDM32/boseto.png" alt="Logo">
-      </h2>
-    </header>
-
-    <div class="testbox">
-      <h1>Registro</h1>
-      <form action="/">
-        <hr>
-        <div>
-          <h3>Persona</h3>
-        </div>
-        <hr>
-
-        <label id="icon" for="email"><i class="icon-envelope"></i></label>
-        <input type="text" name="email" id="email" placeholder="Email" required />
-
-        <label id="icon" for="rut"><i class="icon-user"></i></label>
-        <input type="text" name="rut" id="rut" placeholder="Rut" required />
-
-        <label id="icon" for="password"><i class="icon-shield"></i></label>
-        <input type="password" name="password" id="password" placeholder="Contraseña" required />
-
-        <label id="icon" for="repeat-password"><i class="icon-shield"></i></label>
-        <input type="password" name="repeat-password" id="repeat-password" placeholder="Repetir Contraseña" required />
-
-        <div class="gender">
-          <input type="radio" id="male" name="gender" value="Hombre" checked />
-          <label for="male" class="radio">Hombre</label>
-
-          <input type="radio" id="female" name="gender" value="Mujer" />
-          <label for="female" class="radio">Mujer</label>
-
-          <input type="radio" id="other" name="gender" value="Otro" />
-          <label for="other" class="radio">Otro</label>
-        </div>
-
-        <p>Para más información leer <br> <a href="#">términos y condiciones</a>.</p>
-
-        <a href="#" class="button">Registrar</a>
-      </form>
-    </div>
-  </div>
+		<div class="row">
+			<div class="col-6">
+	            <h1>Registro de Usuario</h1>
+	
+	            <form:form action="/registro" method="POST" modelAttribute="nuevoUsuario">
+				
+				<!-- Nombre -->
+				<div class="mb-3">
+					<form:label path="nombre">Nombre:</form:label>
+					<form:input path="nombre" class="form-control"/>
+					<form:errors path="nombre" class="text-danger"/>
+				</div>
+				
+				<!-- Apellido -->
+				<div class="mb-3">
+					<form:label path="apellido">Apellido:</form:label>
+					<form:input path="apellido" class="form-control"/>
+					<form:errors path="apellido" class="text-danger"/>
+				</div>
+				
+				<!-- Email -->
+				<div class="mb-3">
+					<form:label path="email">Correo Electrónico:</form:label>
+					<form:input path="email" class="form-control"/>
+					<form:errors path="email" class="text-danger"/>
+				</div>
+				
+				<!-- Password -->
+				<div class="mb-3">
+					<form:label path="password">Contraseña:</form:label>
+					<form:password path="password" class="form-control"/>
+					<form:errors path="password" class="text-danger"/>
+				</div>
+				
+				<!-- Confirmación de Password -->
+				<div class="mb-3">
+					<form:label path="confirmacion">Confirmar Contraseña:</form:label>
+					<form:password path="confirmacion" class="form-control"/>
+					<form:errors path="confirmacion" class="text-danger"/>
+				</div>
+				
+				<!-- Cumpleaños -->
+				<div class="mb-3">
+					<form:label path="cumpleanios">Fecha de Nacimiento:</form:label>
+					<form:input type="date" path="cumpleanios" type="date" class="form-control"/>
+					<form:errors path="cumpleanios" class="text-danger"/>
+				</div>
+				
+				<!-- País -->
+				<div class="mb-3">
+					<form:label path="pais">País:</form:label>
+					<form:input path="pais" class="form-control"/>
+					<form:errors path="pais" class="text-danger"/>
+				</div>
+				
+				<!-- Género -->
+				<div class="mb-3">
+					<form:label path="genero">Género:</form:label>
+					<form:select path="genero" class="form-select">
+						<form:option value="Masculino" label="Masculino" />
+						<form:option value="Femenino" label="Femenino" />
+						<form:option value="Otro" label="Otro" />
+					</form:select>
+					<form:errors path="genero" class="text-danger"/>
+				</div>
+				
+				<!-- Teléfono -->
+				<div class="mb-3">
+					<form:label path="telefono">Número de Teléfono:</form:label>
+					<form:input path="telefono" class="form-control" placeholder="+56912345678"/>
+					<form:errors path="telefono" class="text-danger"/>
+				</div>
+				
+				<!-- Botón de Enviar -->
+				<input type="submit" class="btn btn-primary mt-3" value="Registrarse">
+				
+			</form:form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

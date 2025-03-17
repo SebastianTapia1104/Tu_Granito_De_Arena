@@ -1,5 +1,6 @@
 package com.tuGranitoDeArena.proyecto.modelos;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -31,12 +32,33 @@ import jakarta.validation.constraints.Size;
 		private Long id;
 		
 		@NotBlank(message="Por favor ingresa el nombre/razón social de tu empresa.")
-		@Size(min=2, max=100, message="El nombre/razón social de tu empresa debe tener al menos 2 caracteres.")
-		private String nombreORazonSocial;
+		@Size(min=2, max=100, message="El nombre tu empresa debe tener al menos 2 caracteres.")
+		private String nombreEmpresa;
+		
+		@NotBlank(message="Por favor ingresa el nombre/razón social de tu empresa.")
+		@Size(min=2, max=100, message="La razón social de tu empresa debe tener al menos 2 caracteres.")
+		private String razonSocial;
 		
 		@NotBlank(message="Por favor ingresa un rut de empresa válido.")
 		@Size(min=8, max=100, message="El rut debe tener al menos 8 caracteres.")
 		private String rutEmpresa;
+		
+		@NotBlank(message = "El número de celular es obligatorio")
+	    @Size(min = 10, max = 15, message = "El número debe tener entre 10 y 15 dígitos")
+	    @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "El número debe iniciar con '+' opcional y contener entre 10 y 15 dígitos")
+		private String telefonoEmpresa;
+		
+		@NotBlank(message="Por favor ingresa un correo valido")
+		@Size(min=2, max=100, message="El email debe tener al menos 2 caracteres.")
+		@Email(message="Ingresa un email valido.")
+		private String emailEmpresa;
+		
+		@NotBlank(message="Ingresa sitio web")
+		private Boolean sitioWeb;
+		
+		@NotBlank(message="Ingresa una dirección.")
+		@Size(min=8, max=100, message="La dirección debe tener al menos 8 caracteres.")
+		private String direccionEmpresa;
 		
 		@NotBlank(message="")
 		@Min(value = 1, message = "Debes tener al menos 1 sucursal para registrarte.")
@@ -49,7 +71,6 @@ import jakarta.validation.constraints.Size;
 		
 		@Transient
 		private String confirmacion;
-		
 		
 		//DATOS DE CONTACTO EMPRESA
 		
@@ -66,6 +87,12 @@ import jakarta.validation.constraints.Size;
 	    @Pattern(regexp = "^[0-9]{7,8}[0-9Kk]$", message = "El RUT debe ser un número sin puntos ni guion, terminando en un dígito o 'K'")
 		private String rutContacto;
 		
+		//Agregar en JSP SELECT DATE
+		private LocalDate fechaNacimiento;
+		
+		//Tiene que ser una opción en el front end de select
+		private String generoContacto;
+		
 		@NotBlank(message="Por favor ingresa un correo valido")
 		@Size(min=2, max=100, message="El email debe tener al menos 2 caracteres.")
 		@Email(message="Ingresa un email valido.")
@@ -74,304 +101,214 @@ import jakarta.validation.constraints.Size;
 		@Pattern(regexp = "^[+]?[0-9\\- ]{8,15}$", message = "Número de teléfono inválido")
 		@Size(min = 8, max = 15, message = "El número de teléfono debe tener entre 8 y 15 caracteres")
 		private String telefonoContacto;
-		
-		@NotBlank(message="Ingresa una dirección.")
-		@Size(min=8, max=100, message="La dirección debe tener al menos 8 caracteres.")
-		private String direccionEmpresa;
-		
-		@NotBlank(message = "El número de celular es obligatorio")
-	    @Size(min = 10, max = 15, message = "El número debe tener entre 10 y 15 dígitos")
-	    @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "El número debe iniciar con '+' opcional y contener entre 10 y 15 dígitos")
-		private String telefonoEmpresa;
-		
+
 		@NotBlank(message="Por favor ingrese un país.")
 		private String pais;
 		
 		//DEBEN HACERSE EN EL FRONT-END CON SELECT
 		
-		
-		private String regionEmpresa;
-		
-		private String comunaEmpresa;
-							
-		
+		private Boolean terminosYCondicones;
+				
 		//RELACIONES
 		
 		@OneToMany(mappedBy="creador", fetch=FetchType.LAZY)
 		private List<Proyecto> proyectosCreados;
 
-		
 		@Column(updatable=false)
 		@DateTimeFormat(pattern="yyyy-MM-dd")
 		private Date createdAt;
 		
 		@DateTimeFormat(pattern="yyyy-MM-dd")
 		private Date updatedAt;
-		
-		
+				
 		//CONSTRUCTOR VACIO
 		public Empresa() {}
-		
-		
-		//GETTERS Y SETTERS
-		
-		
+				
+		//GETTERS Y SETTERS		
 		
 		public Long getId() {
 			return id;
 		}
 
+		public String getNombreEmpresa() {
+			return nombreEmpresa;
+		}
 
+		public void setNombreEmpresa(String nombreEmpresa) {
+			this.nombreEmpresa = nombreEmpresa;
+		}
 
+		public String getRazonSocial() {
+			return razonSocial;
+		}
+
+		public void setRazonSocial(String razonSocial) {
+			this.razonSocial = razonSocial;
+		}
 
 		public String getTelefonoEmpresa() {
 			return telefonoEmpresa;
 		}
 
-
 		public void setTelefonoEmpresa(String telefonoEmpresa) {
 			this.telefonoEmpresa = telefonoEmpresa;
 		}
-
 
 		public String getPais() {
 			return pais;
 		}
 
-
 		public void setPais(String pais) {
 			this.pais = pais;
 		}
-
 
 		public void setId(Long id) {
 			this.id = id;
 		}
 
-
-
-
-		public String getNombreORazonSocial() {
-			return nombreORazonSocial;
-		}
-
-
-
-
-		public void setNombreORazonSocial(String nombreORazonSocial) {
-			this.nombreORazonSocial = nombreORazonSocial;
-		}
-
-
-
-
 		public String getRutEmpresa() {
 			return rutEmpresa;
 		}
-
-
-
 
 		public void setRutEmpresa(String rutEmpresa) {
 			this.rutEmpresa = rutEmpresa;
 		}
 
-
-
-
 		public int getSucursales() {
 			return sucursales;
 		}
-
-
-
 
 		public void setSucursales(int sucursales) {
 			this.sucursales = sucursales;
 		}
 
-
-
-
 		public String getPassword() {
 			return password;
 		}
-
-
-
 
 		public void setPassword(String password) {
 			this.password = password;
 		}
 
-
-
-
 		public String getConfirmacion() {
 			return confirmacion;
 		}
-
-
-
 
 		public void setConfirmacion(String confirmacion) {
 			this.confirmacion = confirmacion;
 		}
 
-
-
-
 		public String getNombreContacto() {
 			return nombreContacto;
 		}
-
-
-
 
 		public void setNombreContacto(String nombreContacto) {
 			this.nombreContacto = nombreContacto;
 		}
 
-
-
-
 		public String getApellidoContacto() {
 			return apellidoContacto;
 		}
-
-
-
 
 		public void setApellidoContacto(String apellidoContacto) {
 			this.apellidoContacto = apellidoContacto;
 		}
 
-
-
-
 		public String getRutContacto() {
 			return rutContacto;
 		}
-
-
-
 
 		public void setRutContacto(String rutContacto) {
 			this.rutContacto = rutContacto;
 		}
 
-
-
-
 		public String getEmailContacto() {
 			return emailContacto;
 		}
 
-
-
-
 		public void setEmailContacto(String emailContacto) {
 			this.emailContacto = emailContacto;
 		}
-
-
-
-
-		public String getTelefonoContacto() {
+		public String getTelefonoContacto() {
 			return telefonoContacto;
 		}
-
-
-
 
 		public void setTelefonoContacto(String telefonoContacto) {
 			this.telefonoContacto = telefonoContacto;
 		}
 
-
-
-
 		public String getDireccionEmpresa() {
 			return direccionEmpresa;
 		}
-
-
-
 
 		public void setDireccionEmpresa(String direccionEmpresa) {
 			this.direccionEmpresa = direccionEmpresa;
 		}
 
-
-
-
-		public String getRegionEmpresa() {
-			return regionEmpresa;
-		}
-
-
-
-
-		public void setRegionEmpresa(String regionEmpresa) {
-			this.regionEmpresa = regionEmpresa;
-		}
-
-
-
-
-		public String getComunaEmpresa() {
-			return comunaEmpresa;
-		}
-
-
-
-
-		public void setComunaEmpresa(String comunaEmpresa) {
-			this.comunaEmpresa = comunaEmpresa;
-		}
-
-
 		public List<Proyecto> getProyectosCreados() {
 			return proyectosCreados;
 		}
-
-
-
 
 		public void setProyectosCreados(List<Proyecto> proyectosCreados) {
 			this.proyectosCreados = proyectosCreados;
 		}
 
-
-
-
 		public Date getCreatedAt() {
 			return createdAt;
 		}
-
-
-
 
 		public void setCreatedAt(Date createdAt) {
 			this.createdAt = createdAt;
 		}
 
-
-
-
 		public Date getUpdatedAt() {
 			return updatedAt;
 		}
 
-
-
-
 		public void setUpdatedAt(Date updatedAt) {
 			this.updatedAt = updatedAt;
 		}
+		
 
+		public String getEmailEmpresa() {
+			return emailEmpresa;
+		}
 
+		public void setEmailEmpresa(String emailEmpresa) {
+			this.emailEmpresa = emailEmpresa;
+		}
 
+		public Boolean getSitioWeb() {
+			return sitioWeb;
+		}
+
+		public void setSitioWeb(Boolean sitioWeb) {
+			this.sitioWeb = sitioWeb;
+		}
+
+		public LocalDate getFechaNacimiento() {
+			return fechaNacimiento;
+		}
+
+		public void setFechaNacimiento(LocalDate fechaNacimiento) {
+			this.fechaNacimiento = fechaNacimiento;
+		}
+
+		public String getGeneroContacto() {
+			return generoContacto;
+		}
+
+		public void setGeneroContacto(String generoContacto) {
+			this.generoContacto = generoContacto;
+		}
+
+		public Boolean getTerminosYCondicones() {
+			return terminosYCondicones;
+		}
+
+		public void setTerminosYCondicones(Boolean terminosYCondicones) {
+			this.terminosYCondicones = terminosYCondicones;
+		}
 
 		@PrePersist //ANTES de crear al usuario 
 		protected void onCreate() {
@@ -384,4 +321,3 @@ import jakarta.validation.constraints.Size;
 		}
 
 	}
-

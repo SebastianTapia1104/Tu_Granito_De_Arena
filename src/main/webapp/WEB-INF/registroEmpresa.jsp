@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -198,41 +199,110 @@
 </head>
 <body>
     <div class="container">
-        <header class="d-flex justify-content-between align-center">
-            <h2><img src="https://i.ibb.co/DgYwDM32/boseto.png" alt="Logo"></h2>
-        </header>
-        
-        <div class="testbox">
-            <h1>Registro</h1>
-
-            <form action="/">
-                <hr>
-                <div>
-                    <h3>Empresa</h3>   
-                </div>
-                <hr>
-
-                <label id="icon" for="email"><i class="icon-envelope"></i></label>
-                <input type="text" name="email" id="email" placeholder="Email" required />
-
-                <label id="icon" for="rut"><i class="icon-user"></i></label>
-                <input type="text" name="rut" id="rut" placeholder="Rut Empresa" required />
-
-                <label id="icon" for="password"><i class="icon-shield"></i></label>
-                <input type="password" name="password" id="password" placeholder="Contraseña" required />
-
-                <label id="icon" for="confirmPassword"><i class="icon-shield"></i></label>
-                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Repetir Contraseña" required />
-
-                <div class="gender">
-                    <!-- Aquí podrías agregar más opciones si quieres -->
-                </div> 
-
-                <p>Para más información leer <br><a href="#">términos y condiciones</a>.</p>
-
-                <a href="#" class="button">Registrar</a>
-            </form>
-        </div>
-    </div>
+		<div class="row">
+			<div class="col-6">
+	            <h1>Registro de Empresa</h1>
+	
+	            <form:form action="/registroSesionUsuario" method="POST" modelAttribute="nuevaEmpresa" >
+					<div>
+						<form:label path="nombreEmpresa" >Nombre de Empresa:</form:label>
+						<form:input path="nombreEmpresa" class="form-control" />
+						<form:errors path="nombreEmpresa" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="razonSocial" >Razón Social:</form:label>
+						<form:input path="razonSocial" class="form-control" />
+						<form:errors path="razonSocial" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="rutEmpresa" >Rut:</form:label>
+						<form:input path="rutEmpresa" class="form-control" />
+						<form:errors path="rutEmpresa" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="emailEmpresa">Email:</form:label>
+						<form:input path="emailEmpresa" class="form-control" />
+						<form:errors path="emailEmpresa" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="telefonoEmpresa">Telefono:</form:label>
+						<form:input path="telefonoEmpresa" class="form-control" />
+						<form:errors path="telefonoEmpresa" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="password">Contraseña:</form:label>
+						<form:password path="password" class="form-control" />
+						<form:errors path="password" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="confirmacion" >Confirmar contraseña:</form:label>
+						<form:password path="confirmacion" class="form-control" />
+						<form:errors path="confirmacion" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="sitioWeb">Sitio Web:</form:label>
+						<form:input path="sitioWeb" class="form-control" />
+						<form:errors path="sitioWeb" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="direccionEmpresa">Dirección de la Empresa:</form:label>
+						<form:input path="direccionEmpresa" class="form-control" />
+						<form:errors path="direccionEmpresa" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="sucursales">Sucursales:</form:label>
+						<form:input path="sucursales" class="form-control" />
+						<form:errors path="sucursales" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="nombreContacto">Nombre del Contacto:</form:label>
+						<form:input path="nombreContacto" class="form-control" />
+						<form:errors path="nombreContacto" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="apellidoContacto">Apellido del Contacto:</form:label>
+						<form:input path="apellidoContacto" class="form-control" />
+						<form:errors path="apellidoContacto" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="rutContacto">Rut del Contacto:</form:label>
+						<form:input path="rutContacto" class="form-control" />
+						<form:errors path="rutContacto" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="fechaNacimiento">Fecha de Nacimiento del Contacto:</form:label>
+						<form:input type="date" path="fechaNacimiento" class="form-control" />
+						<form:errors path="fechaNacimiento" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="generoContacto">Género del Contacto:</form:label>
+						<form:select path="generoContacto" class="form-control">
+							<form:option value="masculino">Masculino</form:option>
+							<form:option value="femenino">Femenino</form:option>
+							<form:option value="otro">Otro</form:option>
+						</form:select>
+						<form:errors path="generoContacto" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="emailContacto">Email del Contacto:</form:label>
+						<form:input path="emailContacto" class="form-control" />
+						<form:errors path="emailContacto" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="telefonoContacto">Teléfono del Contacto:</form:label>
+						<form:input path="telefonoContacto" class="form-control" />
+						<form:errors path="telefonoContacto" class="text-danger" />
+					</div>
+					<div>
+						<form:label path="terminosYCondicones">Términos Y Condicones:</form:label>
+						<form:input type="checkbox" path="terminosYCondicones" class="form-control" checked/>
+						<form:errors path="terminosYCondicones" class="text-danger" />
+					</div>
+					<p>Para más información leer <br><a href="#">Términos y Condiciones</a>.</p>
+					<input type="submit" class="btn btn-primary mt-3" value="Registrarme" >
+				</form:form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
