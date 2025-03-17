@@ -1,5 +1,6 @@
 package com.tuGranitoDeArena.proyecto.modelos;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -42,6 +43,23 @@ import jakarta.validation.constraints.Size;
 		@Size(min=8, max=100, message="El rut debe tener al menos 8 caracteres.")
 		private String rutEmpresa;
 		
+		@NotBlank(message = "El número de celular es obligatorio")
+	    @Size(min = 10, max = 15, message = "El número debe tener entre 10 y 15 dígitos")
+	    @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "El número debe iniciar con '+' opcional y contener entre 10 y 15 dígitos")
+		private String telefonoEmpresa;
+		
+		@NotBlank(message="Por favor ingresa un correo valido")
+		@Size(min=2, max=100, message="El email debe tener al menos 2 caracteres.")
+		@Email(message="Ingresa un email valido.")
+		private String emailEmpresa;
+		
+		@NotBlank(message="Ingresa sitio web")
+		private Boolean sitioWeb;
+		
+		@NotBlank(message="Ingresa una dirección.")
+		@Size(min=8, max=100, message="La dirección debe tener al menos 8 caracteres.")
+		private String direccionEmpresa;
+		
 		@NotBlank(message="")
 		@Min(value = 1, message = "Debes tener al menos 1 sucursal para registrarte.")
 		private int sucursales;
@@ -70,6 +88,12 @@ import jakarta.validation.constraints.Size;
 	    @Pattern(regexp = "^[0-9]{7,8}[0-9Kk]$", message = "El RUT debe ser un número sin puntos ni guion, terminando en un dígito o 'K'")
 		private String rutContacto;
 		
+		//Agregar en JSP SELECT DATE
+		private LocalDate fechaNacimiento;
+		
+		//Tiene que ser una opción en el front end de select
+		private String generoContacto;
+		
 		@NotBlank(message="Por favor ingresa un correo valido")
 		@Size(min=2, max=100, message="El email debe tener al menos 2 caracteres.")
 		@Email(message="Ingresa un email valido.")
@@ -78,21 +102,13 @@ import jakarta.validation.constraints.Size;
 		@Pattern(regexp = "^[+]?[0-9\\- ]{8,15}$", message = "Número de teléfono inválido")
 		@Size(min = 8, max = 15, message = "El número de teléfono debe tener entre 8 y 15 caracteres")
 		private String telefonoContacto;
-		
-		@NotBlank(message="Ingresa una dirección.")
-		@Size(min=8, max=100, message="La dirección debe tener al menos 8 caracteres.")
-		private String direccionEmpresa;
-		
-		@NotBlank(message = "El número de celular es obligatorio")
-	    @Size(min = 10, max = 15, message = "El número debe tener entre 10 y 15 dígitos")
-	    @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "El número debe iniciar con '+' opcional y contener entre 10 y 15 dígitos")
-		private String telefonoEmpresa;
-		
+
 		@NotBlank(message="Por favor ingrese un país.")
 		private String pais;
 		
 		//DEBEN HACERSE EN EL FRONT-END CON SELECT
 		
+		private Boolean terminosYCondicones;
 		
 		private String regionEmpresa;
 		
