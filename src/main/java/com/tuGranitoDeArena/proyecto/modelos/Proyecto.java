@@ -1,5 +1,6 @@
 package com.tuGranitoDeArena.proyecto.modelos;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -55,6 +56,12 @@ public class Proyecto {
 	@Size(min = 10, max = 20, message = "Debe tener entre 10 y 20 caracteres")
 	@Pattern(regexp = "^[0-9]+$", message = "El número de cuenta solo debe contener dígitos")
 	private String numeroCuenta;
+	
+	@NotNull
+	private Long personasBeneficiadas;
+	
+	@NotNull
+	private BigDecimal cantidadRecaudada;
 	
 	
 	
