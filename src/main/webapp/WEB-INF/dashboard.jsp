@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -114,30 +116,28 @@ footer a:hover {
 
 <body class="d-flex flex-column min-vh-100">
 
-	<!-- Navbar -->
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="#">ARE NITA</a>
 
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#">Granito de Arena</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-			<div class="collapse navbar-collapse justify-content-between" id="navbarNav">
 
-				<form class="d-flex mx-auto my-2 my-lg-0" style="max-width: 300px;">
-					<input class="form-control" type="search" placeholder="Buscar proyecto...">
-				</form>
-
-				<div class="d-flex flex-column flex-lg-row gap-2">
-					<a href="/nuevo" class="btn btn-outline-dark">Propón tu proyecto</a>
-					<a href="#" class="btn btn-outline-dark">Aporte Voluntario</a>
-					<a href="#" class="btn btn-outline-dark">Mi perfil</a>
-					<a href="#" class="btn btn-dark">Logout</a>
-				</div>
-			</div>
-		</div>
-	</nav>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#"></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/nuevo">Proponer Proyecto</a></li>
+                    <p></p>
+                    <li class="nav-item"><a class="nav-link" href="#">Nosotros</a></li>
+                    <li class="nav-item"><a class="btn btn-primary ms-2" href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 	<!-- Contenido Principal -->
 	<main class="container text-center mt-5 pt-5">
@@ -183,20 +183,7 @@ footer a:hover {
 	<!-- Footer -->
 	<footer class="text-center p-3 mt-auto">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<strong>Sobre nosotros</strong><br>
-					<a href="#">Contacto</a>
-				</div>
-				<div class="col-md-4">
-					<strong>Medios de pago</strong><br>
-					WEBPAY - MACH - MERCADO PAGO - CRYPTO
-				</div>
-				<div class="col-md-4">
-					<strong>Términos y privacidad</strong><br>
-					<a href="#">Ver más</a>
-				</div>
-			</div>
+			<p>&copy; 2025 Granito de Arena. Todos los derechos reservados.</p>
 		</div>
 	</footer>
 

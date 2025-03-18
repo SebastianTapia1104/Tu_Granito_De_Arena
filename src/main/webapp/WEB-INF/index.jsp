@@ -32,11 +32,31 @@ body {
 .btn-yellow {
 	background-color: #f4c430;
 	color: #fff;
+	border-radius: 25px;
+	padding: 10px 20px;
+	font-size: 1.1rem;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-yellow:hover {
 	background-color: #d4aa1f;
 	color: #fff;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+	border-radius: 25px;
+	padding: 10px 20px;
+	font-size: 1.1rem;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 .section-title {
@@ -67,7 +87,11 @@ footer {
 				de impacto social.</p>
 			<a href="/registroUsuario" class="btn btn-yellow btn-lg mt-4">Registro Usuario</a> 
 			<a href="/registroEmpresa" class="btn btn-yellow btn-lg mt-4">Registro Empresa</a>
+			<p></p>
 			<a class="btn btn-primary ms-2" href="/loginUsuario">Login Personas</a>
 			<a class="btn btn-primary ms-2" href="/loginEmpresa">Login Empresas</a>
 		</div>
 	</section>
+</body>
+
+</html>

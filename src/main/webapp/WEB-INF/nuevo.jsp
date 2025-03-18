@@ -1,148 +1,121 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AreNita - Crowdfunding</title>
+    <title>Agregar Nuevo Proyecto</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .form-title {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .btn-submit {
+            width: 100%;
+        }
+    </style>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="/">ARE NITA</a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-                <form class="d-flex me-3" role="search">
-                    <input class="form-control" type="search" placeholder="Buscar proyecto...">
-                </form>
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a href="#" class="btn btn-outline-dark me-2">Todos los proyectos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="btn btn-outline-dark me-2">Aporte Voluntario</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="btn btn-outline-dark me-2">Mi Perfil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="btn btn-dark">Logout</a>
-                    </li>
-                </ul>
+<div class="container">
+    <div class="form-container">
+        <h2 class="form-title">Agregar Nuevo Proyecto</h2>
+        
+        <form action="/proyectos/agregar" method="POST">
+
+            <!-- Nombre Proyecto -->
+            <div class="mb-3">
+                <label for="nombreProyecto" class="form-label">Nombre del Proyecto</label>
+                <input type="text" class="form-control" id="nombreProyecto" name="nombreProyecto" minlength="5" required>
             </div>
-        </div>
-    </nav>
 
-    <!-- Contenido principal -->
-    <main class="flex-grow-1">
-        <div class="container py-5">
-            <h2 class="mb-4">${proyecto.id != null ? 'Editar Proyecto' : 'Crear Nuevo Proyecto'}</h2>
-
-            <form action="${proyecto.id != null ? '/actualizar/' + proyecto.id : '/crear'}" method="post" enctype="multipart/form-data">
-
-                <!-- Nombre del Proyecto -->
-                <div class="mb-3">
-                    <label for="nombreProyecto" class="form-label">Nombre del Proyecto</label>
-                    <input type="text" class="form-control" id="nombreProyecto" name="nombreProyecto"
-                        value="${proyecto.nombreProyecto != null ? proyecto.nombreProyecto : ''}" required>
-                </div>
-
-                <!-- DescripciÃ³n -->
-                <div class="mb-3">
-                    <label for="descripcionProyecto" class="form-label">DescripciÃ³n</label>
-                    <textarea class="form-control" id="descripcionProyecto" name="descripcionProyecto" rows="3" required>${proyecto.descripcionProyecto != null ? proyecto.descripcionProyecto : ''}</textarea>
-                </div>
-
-                <!-- Meta -->
-                <div class="mb-3">
-                    <label for="metaProyecto" class="form-label">Meta (monto a recaudar)</label>
-                    <input type="number" step="0.01" min="0" class="form-control" id="metaProyecto" name="metaProyecto"
-                        value="${proyecto.metaProyecto != null ? proyecto.metaProyecto : ''}" required>
-                </div>
-
-                <!-- Datos Bancarios -->
-                <div class="mb-3">
-                    <label for="datosBancarios" class="form-label">Nombre del Titular de la Cuenta</label>
-                    <input type="text" class="form-control" id="datosBancarios" name="datosBancarios"
-                        value="${proyecto.datosBancarios != null ? proyecto.datosBancarios : ''}" required>
-                </div>
-
-                <!-- Banco -->
-                <div class="mb-3">
-                    <label for="banco" class="form-label">Banco</label>
-                    <input type="text" class="form-control" id="banco" name="banco"
-                        value="${proyecto.banco != null ? proyecto.banco : ''}" required>
-                </div>
-
-                <!-- Tipo de Cuenta -->
-                <div class="mb-3">
-                    <label for="tipoCuenta" class="form-label">Tipo de Cuenta</label>
-                    <select class="form-select" id="tipoCuenta" name="tipoCuenta" required>
-                        <option value="">Seleccione un tipo de cuenta</option>
-                        <option value="corriente" ${proyecto.tipoCuenta == 'corriente' ? 'selected' : ''}>Cuenta Corriente</option>
-                        <option value="vista" ${proyecto.tipoCuenta == 'vista' ? 'selected' : ''}>Cuenta Vista</option>
-                        <option value="ahorro" ${proyecto.tipoCuenta == 'ahorro' ? 'selected' : ''}>Cuenta de Ahorro</option>
-                    </select>
-                </div>
-
-                <!-- NÃºmero de Cuenta -->
-                <div class="mb-3">
-                    <label for="numeroCuenta" class="form-label">NÃºmero de Cuenta</label>
-                    <input type="text" class="form-control" id="numeroCuenta" name="numeroCuenta"
-                        value="${proyecto.numeroCuenta != null ? proyecto.numeroCuenta : ''}" required>
-                </div>
-
-                <!-- Imagen del Proyecto (opcional) -->
-                <!--
-                <div class="mb-3">
-                    <label for="imagenProyecto" class="form-label">URL de Imagen (o sube archivo)</label>
-                    <input type="text" class="form-control mb-2" id="imagenProyecto" name="imagenProyecto"
-                        value="${proyecto.imagenProyecto != null ? proyecto.imagenProyecto : ''}">
-                    <input type="file" class="form-control" id="imagenFile" name="imagenFile">
-                </div>
-                -->
-
-                <!-- Botones -->
-                <div class="d-flex gap-2">
-                    <button type="submit" class="btn btn-primary">Aceptar</button>
-                    <a href="/" class="btn btn-secondary">Cancelar</a>
-                </div>
-
-            </form>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start mt-auto shadow-sm">
-        <div class="container p-4">
-            <div class="row text-center text-md-start">
-                <div class="col-md-4 mb-3">
-                    <h6 class="text-uppercase fw-bold">Sobre Nosotros</h6>
-                    <p>Contacto</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h6 class="text-uppercase fw-bold">Medios de Pago</h6>
-                    <p>WEBPAY - MACH - MERCADO PAGO - CRYPTO</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h6 class="text-uppercase fw-bold">Legal</h6>
-                    <p>TÃ©rminos, condiciones y privacidad</p>
-                </div>
+            <!-- Descripción Proyecto -->
+            <div class="mb-3">
+                <label for="descripcionProyecto" class="form-label">Descripción del Proyecto</label>
+                <textarea class="form-control" id="descripcionProyecto" name="descripcionProyecto" rows="4" required></textarea>
             </div>
-        </div>
-        <div class="text-center p-3 bg-dark text-white">
-            Â© 2025 AreNita Crowdfunding
-        </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Meta Proyecto -->
+            <div class="mb-3">
+                <label for="metaProyecto" class="form-label">Meta del Proyecto (mínimo $100)</label>
+                <input type="number" class="form-control" id="metaProyecto" name="metaProyecto" min="100" step="0.01" required>
+            </div>
+
+            <!-- URL Imagen -->
+            <div class="mb-3">
+                <label for="urlImagen" class="form-label">URL de la Imagen</label>
+                <input type="url" class="form-control" id="urlImagen" name="urlImagen" required>
+            </div>
+
+            <hr>
+
+            <h4>Datos Bancarios</h4>
+
+            <!-- Datos Bancarios -->
+            <div class="mb-3">
+                <label for="datosBancarios" class="form-label">Datos Bancarios</label>
+                <input type="text" class="form-control" id="datosBancarios" name="datosBancarios" required>
+            </div>
+
+            <!-- Banco -->
+            <div class="mb-3">
+                <label for="banco" class="form-label">Banco</label>
+                <input type="text" class="form-control" id="banco" name="banco" required>
+            </div>
+
+            <!-- Tipo de Cuenta -->
+            <div class="mb-3">
+                <label for="tipoDeCuenta" class="form-label">Tipo de Cuenta</label>
+                <select class="form-select" id="tipoDeCuenta" name="tipoDeCuenta" required>
+                    <option value="">Selecciona el tipo</option>
+                    <option value="Cuenta Corriente">Cuenta Corriente</option>
+                    <option value="Cuenta Vista">Cuenta Vista</option>
+                    <option value="Cuenta de Ahorro">Cuenta de Ahorro</option>
+                </select>
+            </div>
+
+            <!-- Número de Cuenta -->
+            <div class="mb-3">
+                <label for="numeroCuenta" class="form-label">Número de Cuenta</label>
+                <input type="text" class="form-control" id="numeroCuenta" name="numeroCuenta" pattern="[0-9]{10,20}" required
+                       title="Debe tener entre 10 y 20 dígitos">
+            </div>
+
+            <hr>
+
+            <!-- Personas Beneficiadas -->
+            <div class="mb-3">
+                <label for="personasBeneficiadas" class="form-label">Personas Beneficiadas</label>
+                <input type="number" class="form-control" id="personasBeneficiadas" name="personasBeneficiadas" min="0" required>
+            </div>
+
+            <!-- Cantidad Recaudada -->
+            <div class="mb-3">
+                <label for="cantidadRecaudada" class="form-label">Cantidad Recaudada</label>
+                <input type="number" class="form-control" id="cantidadRecaudada" name="cantidadRecaudada" min="0" step="0.01" required>
+            </div>
+
+            <!-- Botón -->
+            <button type="submit" class="btn btn-primary btn-submit">Agregar Proyecto</button>
+
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap JS (opcional, para funcionalidades como validaciones o modals) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

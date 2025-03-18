@@ -20,6 +20,7 @@ import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
@@ -53,14 +54,13 @@ import jakarta.validation.constraints.Size;
 		@Email(message="Ingresa un email valido.")
 		private String emailEmpresa;
 		
-		@NotBlank(message="Ingresa sitio web")
-		private Boolean sitioWeb;
+		@NotNull(message = "El campo sitioWeb no puede ser nulo")
+		private String sitioWeb;
 		
 		@NotBlank(message="Ingresa una dirección.")
 		@Size(min=8, max=100, message="La dirección debe tener al menos 8 caracteres.")
 		private String direccionEmpresa;
 		
-		@NotBlank(message="")
 		@Min(value = 1, message = "Debes tener al menos 1 sucursal para registrarte.")
 		private int sucursales;
 		
@@ -275,11 +275,13 @@ import jakarta.validation.constraints.Size;
 			this.emailEmpresa = emailEmpresa;
 		}
 
-		public Boolean getSitioWeb() {
+
+
+		public String getSitioWeb() {
 			return sitioWeb;
 		}
 
-		public void setSitioWeb(Boolean sitioWeb) {
+		public void setSitioWeb(String sitioWeb) {
 			this.sitioWeb = sitioWeb;
 		}
 
