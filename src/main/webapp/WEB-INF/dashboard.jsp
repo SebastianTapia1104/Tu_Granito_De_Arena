@@ -176,8 +176,7 @@ footer a:hover {
 								</p>
 								
 								<c:if test="${proyecto.creador.id == empresaEnSesion.id}">
-									<a href="/editar/${proyecto.id}" class="btn btn-sm btn-warning">
-										<i class="fas fa-edit"></i> Editar
+									<a href="/editar/${proyecto.id}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Editar
 									</a>
 								</c:if>
 							</div>

@@ -37,10 +37,10 @@
 
 <div class="container">
     <div class="form-container">
-        <h2 class="form-title">Agregar Nuevo Proyecto</h2>
+        <h2 class="form-title">Editar Proyecto</h2>
 
         <!-- Formulario con Spring -->
-        <form:form modelAttribute="nuevoProyecto" action="/editar/${id}" method="POST">
+        <form:form modelAttribute="proyecto" action="/actualizar/${id}" method="POST">
         <input type="hidden" name="_method" value="PUT">
 
             <!-- Nombre Proyecto -->
@@ -114,7 +114,8 @@
                 <label for="cantidadRecaudada" class="form-label">Cantidad Recaudada</label>
                 <form:input type="number" path="cantidadRecaudada" class="form-control" id="cantidadRecaudada" min="0" step="0.01" required="true"/>
             </div>
-
+			<form:hidden path="creador" value="${empresaEnSesion.id}" />
+			<input type="submit" class="btn btn-success mt-3" value="Guardar" >
             <!-- Botón -->
             <form action="/borrar/${proyecto.id}" method="POST">
 			<input type="hidden" name="_method" value="DELETE">

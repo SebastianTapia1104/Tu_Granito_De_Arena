@@ -128,10 +128,13 @@ footer {
 				</div>
 				<!-- Botones -->
 				<div class="mt-4">
-					<a href="/editar/${proyecto.id}" class="btn btn-sm btn-warning">
-						<i class="fas fa-edit"></i> Editar
-					</a>
-					<a href="https://www.mercadopago.cl" target="_blank" class="btn btn-amarillo me-3" title="Serás redirigido a MercadoPago">Donar</a>
+					<c:if test="${proyecto.creador.id == empresaEnSesion.id}">
+						<a href="/editar/${proyecto.id}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Editar
+									</a>
+					</c:if>
+					<c:if test="${proyecto.creador.id != empresaEnSesion.id && empresaEnSesion != null}">
+						<a href="https://www.mercadopago.cl" target="_blank" class="btn btn-amarillo me-3" title="Serás redirigido a MercadoPago">Donar</a>
+					</c:if>
 					<button class="btn btn-outline-primary" onclick="copiarEnlace()">Compartir</button>
 					<p id="mensajeCopiado" class="text-success mt-2"
 						style="display: none;">¡Enlace copiado!</p>

@@ -87,7 +87,7 @@ public class ControladorDashboard {
  	}
 	
 	@PostMapping("/crear")
-	public String crear(@Valid @ModelAttribute("nuevaSerie") Proyecto nuevoProyecto,
+	public String crear(@Valid @ModelAttribute("nuevoProyecto") Proyecto nuevoProyecto,
 						BindingResult result) {
 		
 		if(result.hasErrors()) {
