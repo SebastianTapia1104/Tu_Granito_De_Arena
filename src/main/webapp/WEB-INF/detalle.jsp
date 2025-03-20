@@ -115,27 +115,21 @@ footer {
 			<div class="col-md-6">
 				<h2>${proyecto.nombreProyecto}</h2>
 				<p>
-					<strong>Creador:</strong> ${proyecto.creador.nombre}
-				</p>
-				<p>
-					<strong>Lugar:</strong> ${proyecto.lugar}
-				</p>
-				<p>
-					<strong>Categoría:</strong> ${proyecto.categoria}
+					<strong>Creador:</strong> ${proyecto.creador.nombreEmpresa}
 				</p>
 				<div class="card p-4 shadow-sm">
 					<p>
-						<strong>${proyecto.montoRecaudado} USD</strong> recaudados
+						<strong>${proyecto.cantidadRecaudada} USD</strong> recaudados
 					</p>
 					<p>
 						<strong>Meta:</strong> ${proyecto.metaProyecto} USD
 					</p>
-					<p>${proyecto.numeroAportantes}personasaportaron</p>
+					<p>${proyecto.donadores.size()} personas aportaron</p>
 					<!-- Barra de progreso -->
 					<div class="progress">
 						<div class="progress-bar" role="progressbar"
-							style="width: ${(proyecto.montoRecaudado / proyecto.metaProyecto) * 100}%;"
-							aria-valuenow="${(proyecto.montoRecaudado / proyecto.metaProyecto) * 100}"
+							style="width: ${(proyecto.cantidadRecaudada / proyecto.metaProyecto) * 100}%;"
+							aria-valuenow="${(proyecto.cantidadRecaudada / proyecto.metaProyecto) * 100}"
 							aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
 				</div>
@@ -151,7 +145,7 @@ footer {
 			</div>
 			<!-- Imagen del Proyecto -->
 			<div class="col-md-6 text-center">
-				<img src="${proyecto.imagenProyecto}" alt="Imagen del Proyecto"
+				<img src="${proyecto.urlImagen}" alt="Imagen del Proyecto"
 					class="img-fluid rounded shadow-sm"
 					style="max-height: 300px; max-width: 100%;">
 			</div>
