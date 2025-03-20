@@ -130,7 +130,10 @@ footer a:hover {
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="#"></a></li>
-                    <li class="nav-item"><a class="btn btn-warning me-2" href="/nuevo">Proponer proyecto</a></li>
+              
+                    <c:if test="${usuarioEnSesion.genero == null}">
+						<li class="nav-item"><a class="btn btn-warning me-2" href="/nuevo">Proponer proyecto</a></li>
+					</c:if>
                     <li class="nav-item"><a class="btn btn-primary" href="#">Nosotros</a></li>
                     <li class="nav-item"><a class="btn btn-primary ms-2" href="/logout">Logout</a></li>
                 </ul>
@@ -165,7 +168,7 @@ footer a:hover {
 								<p class="mb-2">
 									<span class="badge bg-success">Meta: $<c:out value="${proyecto.metaProyecto}"/></span>
 								</p>
-
+								
 								<c:if test="${proyecto.creador.id == usuarioEnSesion.id}">
 									<a href="/editar/${proyecto.id}" class="btn btn-sm btn-warning">
 										<i class="fas fa-edit"></i> Editar

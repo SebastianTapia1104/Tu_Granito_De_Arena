@@ -79,6 +79,8 @@ public class ControladorDashboard {
  			@ModelAttribute("nuevoProyecto")Proyecto nuevoProyecto) {
 		if(session.getAttribute("usuarioEnSesion") == null && session.getAttribute("empresaEnSesion") == null){
 			return "redirect:/";
+		}else if(session.getAttribute("usuarioEnSesion") instanceof Usuario) {
+			return "redirect:/dashboard";
 		}
  		
  		return "nuevo.jsp";

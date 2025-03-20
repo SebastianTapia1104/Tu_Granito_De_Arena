@@ -116,7 +116,7 @@
 
             <!-- Botón -->
             <button type="submit" class="btn btn-primary btn-submit">Agregar Proyecto</button>
-
+			<form:hidden path="creador" value="${usuarioEnSesion.id}"/>
         </form:form>
     </div>
 </div>
