@@ -30,7 +30,7 @@ public class ServicioEmpresas {
 		String rutEmpresa = nuevoEmpresa.getRutEmpresa();
 		Empresa existeEmpresa = repoEmpresas.findByRutEmpresa(rutEmpresa); //Objeto Empresa o null
 		if(existeEmpresa != null) {
-			result.rejectValue("email", "Unique", "E-mail ya se encuentra registrado.");
+			result.rejectValue("rut", "Unique", "Este rut ya se encuentra registrado.");
 		}
 		
 		if(result.hasErrors()) {

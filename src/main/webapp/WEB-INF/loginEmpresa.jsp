@@ -81,12 +81,6 @@
     <form:form action="/iniciarSesionEmpresa" method="POST" modelAttribute="loginEmpresa">
       
       <div class="mb-3">
-        <form:label path="emailLogin" class="form-label">E-mail:</form:label>
-        <form:input path="emailLogin" class="form-control" type="email" placeholder="correo@empresa.com"/>
-        <form:errors path="emailLogin" class="text-danger" />
-      </div>
-      
-      <div class="mb-3">
         <form:label path="rutEmpresa" class="form-label">Rut:</form:label>
         <form:input path="rutEmpresa" class="form-control" placeholder="12345678	"/>
         <form:errors path="rutEmpresa" class="text-danger" />

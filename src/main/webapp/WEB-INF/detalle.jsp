@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -84,12 +85,6 @@ footer {
 		<div class="container">
 			<a class="navbar-brand fw-bold text-primary" href="/">Granito de
 				Arena</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarContent"
-				aria-controls="navbarContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
 			<div class="collapse navbar-collapse justify-content-end"
 				id="navbarContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -133,9 +128,10 @@ footer {
 				</div>
 				<!-- Botones -->
 				<div class="mt-4">
-					<a href="https://www.mercadopago.cl" target="_blank"
-						class="btn btn-amarillo me-3"
-						title="Serás redirigido a MercadoPago">Donar</a>
+					<a href="/editar/${proyecto.id}" class="btn btn-sm btn-warning">
+						<i class="fas fa-edit"></i> Editar
+					</a>
+					<a href="https://www.mercadopago.cl" target="_blank" class="btn btn-amarillo me-3" title="Serás redirigido a MercadoPago">Donar</a>
 					<button class="btn btn-outline-primary" onclick="copiarEnlace()">Compartir</button>
 					<p id="mensajeCopiado" class="text-success mt-2"
 						style="display: none;">¡Enlace copiado!</p>

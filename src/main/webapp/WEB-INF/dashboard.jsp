@@ -125,7 +125,12 @@ footer a:hover {
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
+			<form action="/buscar" method="GET">
+		 		<div class="input-group mb-3">
+				  <input type="text" class="form-control" placeholder="Buscar proyecto" name="palabra">
+				  <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+				</div>
+		 	</form>
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
@@ -169,7 +174,7 @@ footer a:hover {
 									<span class="badge bg-success">Meta: $<c:out value="${proyecto.metaProyecto}"/></span>
 								</p>
 								
-								<c:if test="${proyecto.creador.id == usuarioEnSesion.id}">
+								<c:if test="${proyecto.creador.id == empresaEnSesion.id}">
 									<a href="/editar/${proyecto.id}" class="btn btn-sm btn-warning">
 										<i class="fas fa-edit"></i> Editar
 									</a>
