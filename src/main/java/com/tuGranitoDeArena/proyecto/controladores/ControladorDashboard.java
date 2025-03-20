@@ -188,4 +188,13 @@ public class ControladorDashboard {
 		return "redirect:/dashboard";
  	}
  	
+ 	
+ 	@GetMapping("/sobreNosotros")
+ 	public String nosotros(HttpSession session) {
+ 		if(session.getAttribute("usuarioEnSesion") == null && session.getAttribute("empresaEnSesion") == null){
+			return "redirect:/";
+		}
+		
+ 		return "nosotros.jsp";
+ 	}
  }

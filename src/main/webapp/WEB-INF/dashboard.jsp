@@ -134,7 +134,7 @@ footer a:hover {
                     <c:if test="${usuarioEnSesion.genero == null}">
 						<li class="nav-item"><a class="btn btn-warning me-2" href="/nuevo">Proponer proyecto</a></li>
 					</c:if>
-                    <li class="nav-item"><a class="btn btn-primary" href="#">Nosotros</a></li>
+                    <li class="nav-item"><a class="btn btn-primary" href="/sobreNosotros">Nosotros</a></li>
                     <li class="nav-item"><a class="btn btn-primary ms-2" href="/logout">Logout</a></li>
                 </ul>
             </div>
@@ -155,7 +155,7 @@ footer a:hover {
 
 						<div class="card-body d-flex flex-column">
 							<h5 class="card-title">
-								<a href="/mostrar/${proyecto.id}" class="text-decoration-none text-dark fw-bold">
+								<a href="/detalle/${proyecto.id}" class="text-decoration-none text-dark fw-bold">
 									<c:out value="${proyecto.nombreProyecto}" />
 								</a>
 							</h5>

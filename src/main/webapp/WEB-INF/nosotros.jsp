@@ -60,6 +60,10 @@ body {
 	border-color: #e0a800;
 }
 
+.espaciado-texto {
+    line-height: 1.5;
+}
+
 /* ---FOOTER--- */
 footer {
 	background-color: #0d6efd;
@@ -69,6 +73,8 @@ footer {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
+	
+	
 }
 
 /* Ajuste para que el contenido no se solape con el footer */
@@ -93,9 +99,7 @@ footer {
 			<div class="collapse navbar-collapse justify-content-end"
 				id="navbarContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item btn"><a class="nav-link btn" href="/">Inicio</a></li>
-					<li class="nav-item btn"><a class="nav-link btn" href="/sobreNosotros">Nosotros</a>
-					</li>
+					<li class="nav-item btn"><a class="nav-link btn" href="/">Inicio</a></li>					
 				</ul>
 				<form class="d-flex me-3 my-2 my-lg-0" role="search"
 					action="/buscar" method="GET">
@@ -108,51 +112,19 @@ footer {
 
 	<!-- Contenido principal -->
 	<div class="container mt-5">
-		<div class="row">
-			<!-- Información del Proyecto -->
-			<div class="col-md-6">
-				<h2>${proyecto.nombreProyecto}</h2>
-				<p>
-					<strong>Creador:</strong> ${proyecto.creador.nombreEmpresa}
-				</p>
-				<div class="card p-4 shadow-sm">
-					<p>
-						<strong>${proyecto.cantidadRecaudada} USD</strong> recaudados
-					</p>
-					<p>
-						<strong>Meta:</strong> ${proyecto.metaProyecto} USD
-					</p>
-					<p>${proyecto.donadores.size()} personas aportaron</p>
-					<!-- Barra de progreso -->
-					<div class="progress">
-						<div class="progress-bar" role="progressbar"
-							style="width: ${(proyecto.cantidadRecaudada / proyecto.metaProyecto) * 100}%;"
-							aria-valuenow="${(proyecto.cantidadRecaudada / proyecto.metaProyecto) * 100}"
-							aria-valuemin="0" aria-valuemax="100"></div>
-					</div>
-				</div>
-				<!-- Botones -->
-				<div class="mt-4">
-					<a href="https://www.mercadopago.cl" target="_blank"
-						class="btn btn-amarillo me-3"
-						title="Serás redirigido a MercadoPago">Donar</a>
-					<button class="btn btn-outline-primary" onclick="copiarEnlace()">Compartir</button>
-					<p id="mensajeCopiado" class="text-success mt-2"
-						style="display: none;">¡Enlace copiado!</p>
-				</div>
-			</div>
-			<!-- Imagen del Proyecto -->
-			<div class="col-md-6 text-center">
-				<img src="${proyecto.urlImagen}" alt="Imagen del Proyecto"
-					class="img-fluid rounded shadow-sm"
-					style="max-height: 300px; max-width: 100%;">
-			</div>
-		</div>
-		<!-- Descripción -->
-		<div class="mt-5">
-			<h4>Descripción del proyecto:</h4>
-			<p>${proyecto.descripcionProyecto}</p>
-		</div>
+		<h1 class="mb-4">Sobre nosotros</h1>
+		<h3 class="espaciado-texto">
+    En Tu Granito de Arena, creemos en el poder de la solidaridad y en la importancia de conectar a quienes desean ayudar con aquellos que más lo necesitan. <br> 
+    Somos una plataforma que centraliza proyectos de ONGs y empresas comprometidas con el cambio social, facilitando que cualquier persona pueda aportar su granito de arena a las causas que más le importan. <br>
+
+    Nuestra misión es crear un espacio transparente y accesible donde los usuarios puedan descubrir, conocer y donar a proyectos que generan un impacto positivo en la sociedad. <br> 
+    Al mismo tiempo, brindamos a las organizaciones una herramienta para visibilizar sus iniciativas en una plataforma que centraliza los proyectos para generar un mayor alcance.
+
+    Ya sea apoyando la educación, el medio ambiente, la salud o cualquier otra causa, en Tu Granito de Arena cada aporte cuenta. Juntos, podemos construir un mundo mejor. <br>
+
+    ¿Listo para hacer la diferencia? ¡Explora los proyectos y aporta tu granito de arena para la causa que más te guste!
+</h3>
+	
 	</div>
 
 	<!-- FOOTER -->
