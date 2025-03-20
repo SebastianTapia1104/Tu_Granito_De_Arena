@@ -120,22 +120,23 @@ footer a:hover {
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold text-primary" href="#">Granito de Arena</a>
+            <a class="navbar-brand fw-bold text-primary" href="/">Granito de Arena</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-			<form action="/buscar" method="GET">
-		 		<div class="input-group mb-3">
-				  <input type="text" class="form-control" placeholder="Buscar proyecto" name="palabra">
-				  <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
-				</div>
-		 	</form>
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
+                	<li>
+                		<form action="/buscar" method="GET">
+				 			<div class="input-group">
+						  		<input type="text" class="form-control" placeholder="Buscar proyecto" name="palabra">
+						  		<button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+							</div>
+		 				</form>
+		 			</li>
                     <li class="nav-item"><a class="nav-link" href="#"></a></li>
-              
                     <c:if test="${usuarioEnSesion.genero == null}">
 						<li class="nav-item"><a class="btn btn-warning me-2" href="/nuevo">Proponer proyecto</a></li>
 					</c:if>

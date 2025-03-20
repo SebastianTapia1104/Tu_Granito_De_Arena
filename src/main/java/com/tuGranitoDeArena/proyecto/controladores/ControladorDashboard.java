@@ -172,8 +172,8 @@ public class ControladorDashboard {
 			return "redirect:/";
 		}
 		
-		List<Proyecto> proyecto = servProyectos.buscarProyectoConPalabra(palabra);
-		model.addAttribute("proyecto", proyecto);
+		List<Proyecto> proyectos = servProyectos.buscarProyectoConPalabra(palabra);
+		model.addAttribute("proyectos", proyectos);
 		
 		return "dashboard.jsp";
  		

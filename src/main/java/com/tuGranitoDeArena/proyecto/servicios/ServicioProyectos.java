@@ -26,7 +26,6 @@ public class ServicioProyectos {
 	
 	//Método que regrese todas las Serie
 	public List<Proyecto> todosLosProyectos() {
-		
 		return repoProyectos.findAll();
 	}
 	
