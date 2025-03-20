@@ -15,6 +15,7 @@
             background-image: url("https://images.unsplash.com/photo-1426604966848-d7adac402bff?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJhbGV6YSUyMDRrfGVufDB8fDB8fHww");
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             height: 100vh;
             padding: 20px;
             position: relative;
@@ -56,10 +57,10 @@
     </style>
 </head>
 <body>
-	<div class="container container-form">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6">
-                <div class="card">
+	<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="row justify-content-center w-100">
+        <div class="col-12 col-md-5 col-lg-5">
+            <div class="card p-4">
             	<h1>Registro de Empresa</h1>
             	
            		<form:form action="/registroSesionEmpresa" method="POST" modelAttribute="nuevaEmpresa">

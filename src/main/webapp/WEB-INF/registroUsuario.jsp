@@ -18,6 +18,7 @@
             background-position: center;
             height: 100vh;
             padding: 20px;
+            background-attachment: fixed;
             position: relative;
         }
 
@@ -57,10 +58,10 @@
     </style>
 </head>
 <body>
-    <div class="container container-form">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6">
-                <div class="card">
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="row justify-content-center w-100">
+        <div class="col-12 col-md-5 col-lg-5">
+            <div class="card p-4">
                     <h2>Registro de Usuario</h2>
 
                     <form:form action="/registroSesionUsuario" method="POST" modelAttribute="nuevoUsuario">
