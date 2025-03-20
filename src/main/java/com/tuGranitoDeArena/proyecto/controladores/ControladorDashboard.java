@@ -100,27 +100,31 @@ public class ControladorDashboard {
 		
 	}
  	
- 	@GetMapping("/editar")
+ 	@GetMapping("/editar/{id}")
  	public String editar(HttpSession session,
  			Model model,
- 			@PathVariable("id")Long id) {
+ 			@PathVariable("id")Long id,
+ 			@ModelAttribute("proyecto")Proyecto proyecto) {
  		if(session.getAttribute("usuarioEnSesion") == null && session.getAttribute("empresaEnSesion") == null){
 			return "redirect:/";
-		}
+ 		}else if(session.getAttribute("usuarioEnSesion") != null && session.getAttribute("empresaEnSesion") == null) {
+ 			return "redirect:/dashboard";
+ 		}
+ 		
  		
  		//Busca proyecto con id
- 		Proyecto proyecto = servProyectos.buscarProyecto(id);
+ 		Proyecto proyectoEditar = servProyectos.buscarProyecto(id);
  		
  		//Double Check: Empresa En empresa es la creador
 		Empresa empresaEnSesion = (Empresa)session.getAttribute("empresaEnSesion"); //Obteniendo de la sesión el objeto empresa
-		if(empresaEnSesion.getId() !=  proyecto.getCreador().getId()) {
+		if(empresaEnSesion.getId() !=  proyectoEditar.getCreador().getId()) {
 			return "redirect:/dashboard";
 		}
  				
  		//Anade el proyecto con model y lo manda a detalle.jsp
- 		model.addAttribute("proyecto", proyecto);
+ 		model.addAttribute("proyecto", proyectoEditar);
  		
- 		return "nuevo.jsp" ;
+ 		return "editar.jsp" ;
  	}
  	
  	@PutMapping("/actualizar/{id}") //Forzosamente debe llamarse id
@@ -174,5 +178,14 @@ public class ControladorDashboard {
 		return "dashboard.jsp";
  		
 	}
+ 	
+ 	@GetMapping("/borrar/{id}")
+ 	public String borrar(@PathVariable("id")Long id, HttpSession session) {
+ 		if(session.getAttribute("usuarioEnSesion") == null && session.getAttribute("empresaEnSesion") == null){
+			return "redirect:/";
+		}
+ 		servProyectos.borrarProyecto(id);
+		return "redirect:/dashboard";
+ 	}
  	
  }
