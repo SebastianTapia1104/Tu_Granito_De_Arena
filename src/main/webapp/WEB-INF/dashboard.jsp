@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AreNita - Crowdfunding</title>
+<title>Arenita - Crowdfunding</title>
 
 <!-- Bootstrap 5 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -130,9 +130,8 @@ footer a:hover {
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="#"></a></li>
-                    <li class="nav-item"><a class="nav-link" href="/nuevo">Proponer Proyecto</a></li>
-                    <p></p>
-                    <li class="nav-item"><a class="nav-link" href="#">Nosotros</a></li>
+                    <li class="nav-item"><a class="btn btn-warning me-2" href="/nuevo">Proponer proyecto</a></li>
+                    <li class="nav-item"><a class="btn btn-primary" href="#">Nosotros</a></li>
                     <li class="nav-item"><a class="btn btn-primary ms-2" href="/logout">Logout</a></li>
                 </ul>
             </div>
@@ -149,7 +148,7 @@ footer a:hover {
 				<div class="col-sm-12 col-md-6 col-lg-4 mb-4">
 					<div class="card shadow-sm h-100">
 
-						<img src="${proyecto.imagenUrl}" class="card-img-top" alt="${proyecto.nombreProyecto}">
+						<img src="${proyecto.urlImagen}" class="card-img-top" alt="${proyecto.nombreProyecto}">
 
 						<div class="card-body d-flex flex-column">
 							<h5 class="card-title">
@@ -164,7 +163,7 @@ footer a:hover {
 
 							<div class="mt-auto">
 								<p class="mb-2">
-									<span class="badge bg-success">Meta: $<c:out value="${proyecto.metaProyecto}" /></span>
+									<span class="badge bg-success">Meta: $<c:out value="${proyecto.metaProyecto}"/></span>
 								</p>
 
 								<c:if test="${proyecto.creador.id == usuarioEnSesion.id}">

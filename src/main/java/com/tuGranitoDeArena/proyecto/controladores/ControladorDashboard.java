@@ -76,8 +76,7 @@ public class ControladorDashboard {
 	
 	@GetMapping("/nuevo") //Agregar nuevo proyecto
  	public String nuevo(HttpSession session,
- 			Model model,
- 			@PathVariable("id")Long id) {
+ 			@ModelAttribute("nuevoProyecto")Proyecto nuevoProyecto) {
 		if(session.getAttribute("usuarioEnSesion") == null && session.getAttribute("empresaEnSesion") == null){
 			return "redirect:/";
 		}

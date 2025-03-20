@@ -36,7 +36,7 @@ public class Proyecto {
 	
 	@NotNull(message="Por favor proporciona su meta.")
 	@Min(100)
-	private Float metaProyecto;
+	private BigDecimal metaProyecto;
 	
 	@NotBlank(message="Por favor proporciona una URL válida con la imagen.")
 	private String urlImagen;
@@ -182,13 +182,17 @@ public class Proyecto {
 		this.descripcionProyecto = descripcionProyecto;
 	}
 
-	public Float getMetaProyecto() {
+
+
+	public BigDecimal getMetaProyecto() {
 		return metaProyecto;
 	}
 
-	public void setMetaProyecto(Float metaProyecto) {
+
+	public void setMetaProyecto(BigDecimal metaProyecto) {
 		this.metaProyecto = metaProyecto;
 	}
+
 
 	public Empresa getCreador() {
 		return creador;

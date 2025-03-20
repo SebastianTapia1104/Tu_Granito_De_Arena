@@ -72,7 +72,7 @@ body {
 footer {
 	background-color: #0d6efd;
 	color: white;
-	padding: 20px 0;
+	padding: 20px 0;	
 }
 </style>
 </head>
@@ -88,8 +88,8 @@ footer {
 			<a href="/registroUsuario" class="btn btn-yellow btn-lg mt-4">Registro Usuario</a> 
 			<a href="/registroEmpresa" class="btn btn-yellow btn-lg mt-4">Registro Empresa</a>
 			<p></p>
-			<a class="btn btn-primary ms-2" href="/loginUsuario">Login Personas</a>
-			<a class="btn btn-primary ms-2" href="/loginEmpresa">Login Empresas</a>
+			<a class="btn btn-primary px-4" href="/loginUsuario">Login Personas</a>
+			<a class="btn btn-primary px-4" href="/loginEmpresa">Login Empresas</a>
 		</div>
 	</section>
 </body>
