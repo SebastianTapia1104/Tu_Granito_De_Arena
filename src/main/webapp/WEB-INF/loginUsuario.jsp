@@ -72,7 +72,7 @@
   <div class="form-container">
     
     <header>
-      <img src="https://i.ibb.co/DgYwDM32/boseto.png" alt="Logo">
+      <img src="https://media.discordapp.net/attachments/1347018760392806492/1348764682202251345/logo.png?ex=67dd2cbf&is=67dbdb3f&hm=dd685a275bc116348bf6101b4519a1c735c91a43fa629420931a46ad74347b93&=&format=webp&quality=lossless&width=730&height=717" alt="Logo">
     </header>
     
     <h2>Iniciar Sesión</h2>
