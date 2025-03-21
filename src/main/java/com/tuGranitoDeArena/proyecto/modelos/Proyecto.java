@@ -1,8 +1,12 @@
 package com.tuGranitoDeArena.proyecto.modelos;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +16,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -63,8 +70,6 @@ public class Proyecto {
 	@NotNull
 	private BigDecimal cantidadRecaudada;
 	
-	
-	
 	//RELACIONES 
 
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -77,19 +82,24 @@ public class Proyecto {
 			   inverseJoinColumns= @JoinColumn(name="usuario_id"))
 	private List<Usuario> donadores;
 	
+	@OneToMany(mappedBy="proyecto", fetch=FetchType.LAZY)
+	private List<Donacion> donaciones; 
+	
+	@Column(updatable=false)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date createdAt;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date updatedAt;
+	
 	//CONSTRUCTOR VACIO
 	public Proyecto() {}
 
-	
 	//GETTERS Y SETTERS
-	
-	
-	
 	
 	public String getDatosBancarios() {
 		return datosBancarios;
 	}
-
 
 	public Long getPersonasBeneficiadas() {
 		return personasBeneficiadas;
@@ -145,6 +155,21 @@ public class Proyecto {
 		return tipoDeCuenta;
 	}
 
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
 
 	public void setTipoDeCuenta(String tipoDeCuenta) {
 		this.tipoDeCuenta = tipoDeCuenta;
@@ -183,7 +208,6 @@ public class Proyecto {
 	}
 
 
-
 	public BigDecimal getMetaProyecto() {
 		return metaProyecto;
 	}
@@ -192,7 +216,6 @@ public class Proyecto {
 	public void setMetaProyecto(BigDecimal metaProyecto) {
 		this.metaProyecto = metaProyecto;
 	}
-
 
 	public Empresa getCreador() {
 		return creador;
@@ -209,7 +232,24 @@ public class Proyecto {
 	public void setDonadores(List<Usuario> donadores) {
 		this.donadores = donadores;
 	}
+
+	public List<Donacion> getDonaciones() {
+		return donaciones;
+	}
+
+	public void setDonaciones(List<Donacion> donaciones) {
+		this.donaciones = donaciones;
+	}
 	
+
+	@PrePersist //ANTES de crear al usuario 
+	protected void onCreate() {
+		this.createdAt = new Date(); //DEFAULT CURRENT_TIMESTAMP
+	}
 	
-	
+	@PreUpdate //ANTES de actualizar
+	protected void onUpdate() {
+		this.updatedAt = new Date(); //DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT TIME_STAMP
+	}
+		
 }

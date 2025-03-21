@@ -1,0 +1,93 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Inicio de Sesión</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <style>
+    body {
+      background-image: url("https://images.unsplash.com/photo-1426604966848-d7adac402bff?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF0dXJhbGV6YSUyMDRrfGVufDB8fDB8fHww");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #004085;
+    }
+
+    .text-link {
+      display: block;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    header img {
+      display: block;
+      margin: 0 auto 20px;
+      max-height: 120px;
+    }
+
+  </style>
+
+</head>
+<body>
+	<div class="form-container">
+		<h2 class="form-title">Pago simbólico</h2>
+		<form:form action="/agregarDonacion/${proyecto.id}" method="POST" modelAttribute="nuevaDonacion">
+			<div class="mb-3">	
+				<label for="urlImagen" class="form-label">URL del Comprobante</label>
+            	<form:input type="url" path="comprobante" class="form-control" id="comprobante" required="true"/>
+				<form:errors path="comprobante" class="text-danger" />
+			</div>
+			<div class="mb-3">	
+				<label for="valor" class="form-label">Monto de donación</label>
+            	<form:textarea path="valor" placeholder="Escribe el monto de tu donacion" class="form-control"/>
+				<form:errors path="valor" class="text-danger" />
+			</div>
+			<form:hidden path="usuario" value="${usuarioEnSesion.id}" />
+			<form:hidden path="proyecto" value="${proyecto.id}" />
+			<input type="submit" class="btn btn-primary mt-3" value="Donar" >
+		</form:form>
+		   		
+		<a href="/" class="text-link">¿Quieres revisar otros proyectos?</a>
+	</div>
+</body>
+</html>

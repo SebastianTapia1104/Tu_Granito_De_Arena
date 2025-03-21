@@ -132,8 +132,8 @@ footer {
 						<a href="/editar/${proyecto.id}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Editar
 									</a>
 					</c:if>
-					<c:if test="${proyecto.creador.id != empresaEnSesion.id && empresaEnSesion != null}">
-						<a href="https://www.mercadopago.cl" target="_blank" class="btn btn-amarillo me-3" title="Serás redirigido a MercadoPago">Donar</a>
+					<c:if test="${proyecto.creador.id != empresaEnSesion.id && usuarioEnSesion != null}">
+						<a href="/pago/${proyecto.id}" class="btn btn-amarillo me-3" title="Serás redirigido al pago">Donar</a>
 					</c:if>
 					<button class="btn btn-outline-primary" onclick="copiarEnlace()">Compartir</button>
 					<p id="mensajeCopiado" class="text-success mt-2"
@@ -151,6 +151,12 @@ footer {
 		<div class="mt-5">
 			<h4>Descripción del proyecto:</h4>
 			<p>${proyecto.descripcionProyecto}</p>
+		</div>
+		<div class="mt-5">
+			<h3>Donaciones</h3>
+			<c:forEach items="${proyecto.donaciones}" var="donacion">
+				<p><b>${donacion.usuario.nombre}:</b> ha donado ${donacion.valor}</p>
+			</c:forEach>
 		</div>
 	</div>
 

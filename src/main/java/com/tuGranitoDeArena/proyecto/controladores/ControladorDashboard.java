@@ -1,5 +1,6 @@
 package com.tuGranitoDeArena.proyecto.controladores;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tuGranitoDeArena.proyecto.modelos.Donacion;
 import com.tuGranitoDeArena.proyecto.modelos.Empresa;
 import com.tuGranitoDeArena.proyecto.modelos.Proyecto;
 import com.tuGranitoDeArena.proyecto.modelos.Usuario;
+import com.tuGranitoDeArena.proyecto.servicios.ServicioDonaciones;
 import com.tuGranitoDeArena.proyecto.servicios.ServicioProyectos;
 
 import jakarta.servlet.http.HttpSession;
@@ -26,6 +29,9 @@ public class ControladorDashboard {
 
 	@Autowired
 	private ServicioProyectos servProyectos;
+	
+	@Autowired
+	private ServicioDonaciones servDonaciones;
 	
 	@GetMapping("/dashboard")
 	public String dashboard(HttpSession session,
@@ -140,7 +146,7 @@ public class ControladorDashboard {
 	}
  	
  	@GetMapping("/perfil")
-	public String compras(HttpSession session,
+	public String perfil(HttpSession session,
 						    Model model) {
 		/*===== Revisar que el usuario haya iniciado sesión =====*/
  		if(session.getAttribute("usuarioEnSesion") == null && session.getAttribute("empresaEnSesion") == null){
@@ -177,6 +183,46 @@ public class ControladorDashboard {
 		
 		return "dashboard.jsp";
  		
+	}
+ 	
+ 	@GetMapping("/pago/{id}")
+ 	public String pago(HttpSession session,
+			 			Model model,
+						@PathVariable("id")Long id,
+						@ModelAttribute("nuevaDonacion")Donacion nuevaDonacion) {
+ 		if(session.getAttribute("usuarioEnSesion") == null && session.getAttribute("empresaEnSesion") == null){
+ 			return "redirect:/";
+ 		}	
+ 		//Busca proyecto con id
+		Proyecto proyecto = servProyectos.buscarProyecto(id);
+		
+		//Anade el proyecto con model y lo manda a detalle.jsp
+		model.addAttribute("proyecto", proyecto);
+		Usuario usuarioEnSesion = (Usuario)session.getAttribute("usuarioEnSesion"); //Obteniendo de la sesión el objeto usuario
+		Usuario usuario = servProyectos.buscarUsuario(usuarioEnSesion.getId());
+		model.addAttribute("usuario", usuario);
+ 		return "pago.jsp";
+	}
+ 	
+ 	@PostMapping("/agregarDonacion/{id}")
+	public String guardarDonacion(@Valid @ModelAttribute("nuevaDonacion") Donacion nuevaDonacion,
+						HttpSession session,
+						Model model,
+						@PathVariable("id")Long id) {
+ 		if(session.getAttribute("usuarioEnSesion") == null && session.getAttribute("empresaEnSesion") == null){
+ 			return "redirect:/";
+ 		}	
+		/*Queremos que vuelva a aparecer la misma página, por lo tanto hay que consultar a qué idea 
+		 se le estaba colocando el comentario, para volver a enviar la idea*/
+		BigDecimal valor = nuevaDonacion.getValor();
+		BigDecimal cantidadRecaudada = nuevaDonacion.getProyecto().getCantidadRecaudada();
+		BigDecimal nuevoComputo = valor.add(cantidadRecaudada);
+		Proyecto actualizaProyecto = nuevaDonacion.getProyecto();
+		actualizaProyecto.setCantidadRecaudada(nuevoComputo);
+		servProyectos.guardarProyecto(actualizaProyecto);
+		Long proyectoId = nuevaDonacion.getProyecto().getId();
+		servDonaciones.guardarDonacion(nuevaDonacion);
+		return "redirect:/detalle/"+proyectoId;
 	}
  	
  	@GetMapping("/borrar/{id}")

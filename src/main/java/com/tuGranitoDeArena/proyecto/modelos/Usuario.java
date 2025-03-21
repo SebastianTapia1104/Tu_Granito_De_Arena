@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -80,16 +81,14 @@ public class Usuario {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 	
+	@OneToMany(mappedBy="usuario", fetch=FetchType.LAZY)
+	private List<Donacion> misDonaciones; //Los comentarios que ese usuario hizo
 
 
 	//CONSTRUCTOR VACIO
 	public Usuario() {}
 	
-	
-	
-	// GETTERS Y SETTERS 	
-	
-	
+	// GETTERS Y SETTERS 		
 	
 	public LocalDate getCumpleanios() {
 		return cumpleanios;
@@ -211,6 +210,14 @@ public class Usuario {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public List<Donacion> getMisDonaciones() {
+		return misDonaciones;
+	}
+
+	public void setMisDonaciones(List<Donacion> misDonaciones) {
+		this.misDonaciones = misDonaciones;
 	}
 
 	@PrePersist //ANTES de crear al usuario 
