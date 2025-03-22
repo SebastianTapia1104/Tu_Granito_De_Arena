@@ -70,6 +70,7 @@ public class Proyecto {
 	@NotNull
 	private BigDecimal cantidadRecaudada;
 	
+	
 	//RELACIONES 
 
 	@ManyToOne(fetch=FetchType.LAZY)

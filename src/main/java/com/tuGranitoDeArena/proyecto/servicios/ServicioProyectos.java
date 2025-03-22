@@ -81,7 +81,19 @@ public class ServicioProyectos {
 		//Obtener la proyecto que quiero agregar
 		Proyecto miProyecto = buscarProyecto(serieId);
 		
-		miProyecto.getDonadores().add(miUsuario);
+		boolean usuarioEsNuevo = true;
+		for(int i = 0; i < miProyecto.getDonadores().size(); i++) {
+			if(miProyecto.getDonadores().get(i).getId() == miUsuario.getId()) {
+				usuarioEsNuevo = false;
+				break;
+			}
+		}
+		
+		if(usuarioEsNuevo){
+			miProyecto.getDonadores().add(miUsuario);
+		}
+		
+		
 		repoProyectos.save(miProyecto);
 	}
 	
@@ -92,7 +104,10 @@ public class ServicioProyectos {
 		//Obtener la proyecto que quiero agregar
 		Proyecto miProyecto = buscarProyecto(serieId);
 		
+		
+		
 		miProyecto.getDonadores().remove(miUsuario);
+		
 		repoProyectos.save(miProyecto);
 	}
 	

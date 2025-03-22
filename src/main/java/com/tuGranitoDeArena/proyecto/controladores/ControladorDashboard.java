@@ -219,9 +219,12 @@ public class ControladorDashboard {
 		BigDecimal nuevoComputo = valor.add(cantidadRecaudada);
 		Proyecto actualizaProyecto = nuevaDonacion.getProyecto();
 		actualizaProyecto.setCantidadRecaudada(nuevoComputo);
+		nuevaDonacion.setId(null);
+		servDonaciones.guardarDonacion(nuevaDonacion);
+		servProyectos.guardarDonador(nuevaDonacion.getUsuario().getId(), id);
 		servProyectos.guardarProyecto(actualizaProyecto);
 		Long proyectoId = nuevaDonacion.getProyecto().getId();
-		servDonaciones.guardarDonacion(nuevaDonacion);
+		
 		return "redirect:/detalle/"+proyectoId;
 	}
  	

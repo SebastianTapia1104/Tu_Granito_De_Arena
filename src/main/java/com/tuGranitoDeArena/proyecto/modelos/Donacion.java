@@ -24,7 +24,7 @@ import jakarta.validation.constraints.NotNull;
 public class Donacion {
 	
 	@Id //PK
-	@GeneratedValue(strategy = GenerationType.IDENTITY) //AI
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //AI
 	private Long id;
 	
 	@NotBlank(message="Comprobante obligatorio")
