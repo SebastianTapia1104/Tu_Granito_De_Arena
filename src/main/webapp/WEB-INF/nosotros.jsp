@@ -1,154 +1,203 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arenita - Crowdfunding</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-	rel="stylesheet">
+<title>Tu Granito de Arena - Crowdfunding Solidario</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-body {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	/*body ocupa al menos toda la altura de la pantalla */
-	background-color: #f8f9fa;
-	margin: 0;
-}
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
 
-.container {
-	flex: 1;
-	/*contenedor principal ocupe el espacio restante */
-}
+    .container {
+        flex: 1;
+    }
 
-/* ---NAVBAR--- */
-.navbar {
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
+    .navbar {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
 
-.navbar-brand {
-	font-size: 1.8rem;
-	margin-right: 40px;
-}
+    .navbar-brand {
+        font-size: 2rem;
+    }
 
-.navbar .form-control {
-	width: 250px;
-	margin-right: 20px;
-}
+    .hero {
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://previews.123rf.com/images/lkeskinen/lkeskinen1701/lkeskinen170118866/70473027-se-aceptan-donaciones-sello-de-goma-dise%C3%B1o-de-grunge-con-los-rasgu%C3%B1os-polvo-los-efectos-se-pueden.jpg') center/cover no-repeat;
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+    }
 
-.navbar-nav .nav-item {
-	margin-left: 10px;
-	margin-right: 10px;
-}
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+    }
 
-.btn {
-	padding: 8px 16px;
-}
+    .espaciado-texto {
+        line-height: 1.6;
+        color: #333;
+    }
 
-.btn-amarillo {
-	background-color: #ffc107;
-	border-color: #ffc107;
-	color: #000;
-}
+    .valores-icon {
+        font-size: 3rem;
+        color: #0d6efd;
+        margin-bottom: 15px;
+    }
 
-.btn-amarillo:hover {
-	background-color: #e0a800;
-	border-color: #e0a800;
-}
+    .valores-card {
+        transition: transform 0.3s ease;
+    }
 
-.espaciado-texto {
-    line-height: 1.5;
-}
+    .valores-card:hover {
+        transform: translateY(-10px);
+    }
 
-/* ---FOOTER--- */
-footer {
-	background-color: #0d6efd;
-	color: white;
-	padding: 5px 0;
-	text-align: center;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	
-	
-}
+    footer {
+        background-color: #0d6efd;
+        color: white;
+        padding: 15px 0;
+        text-align: center;
+        margin-top: 40px;
+    }
 
-/* Ajuste para que el contenido no se solape con el footer */
-.container {
-	margin-bottom: 5px;
-	/* Asegura que el contenido no quede detrás del footer */
-}
+    .cta-button {
+        background-color: #ffc107;
+        color: #000;
+        padding: 12px 24px;
+        font-size: 1.2rem;
+        border-radius: 50px;
+        transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+        background-color: #e0a800;
+    }
+
+    .testimonio img {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+
+    .metricas {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        margin-top: 40px;
+    }
+
+    .metricas h3 {
+        font-size: 2rem;
+        color: #0d6efd;
+    }
 </style>
 </head>
 <body>
-	<!-- NAVBAR -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-		<div class="container">
-			<a class="navbar-brand fw-bold text-primary" href="/">Granito de
-				Arena</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarContent"
-				aria-controls="navbarContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse justify-content-end"
-				id="navbarContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item btn"><a class="nav-link btn" href="/">Inicio</a></li>					
-				</ul>
-				<form class="d-flex me-3 my-2 my-lg-0" role="search"
-					action="/buscar" method="GET">
-					<input class="form-control" type="search" name="palabra"
-						placeholder="Buscar proyecto...">
-				</form>
-			</div>
-		</div>
-	</nav>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="/">Granito de Arena</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item btn"><a class="nav-link btn" href="/">Inicio</a></li>
+                </ul>
+                <form class="d-flex me-3" role="search" action="/buscar" method="GET">
+                    <input class="form-control" type="search" name="palabra" placeholder="Buscar proyecto...">
+                </form>
+            </div>
+        </div>
+    </nav>
 
-	<!-- Contenido principal -->
-	<div class="container mt-5">
-		<h1 class="mb-4">Sobre nosotros</h1>
-		<h3 class="espaciado-texto">
-    En Tu Granito de Arena, creemos en el poder de la solidaridad y en la importancia de conectar a quienes desean ayudar con aquellos que más lo necesitan. <br> 
-    Somos una plataforma que centraliza proyectos de ONGs y empresas comprometidas con el cambio social, facilitando que cualquier persona pueda aportar su granito de arena a las causas que más le importan. <br>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Transformando la solidaridad en acción</h1>
+            <p class="lead">Únete a una comunidad que cambia vidas, una donación a la vez.</p>
+            <a href="/proyectos" class="btn cta-button mt-3">Explorar Proyectos</a>
+        </div>
+    </section>
 
-    Nuestra misión es crear un espacio transparente y accesible donde los usuarios puedan descubrir, conocer y donar a proyectos que generan un impacto positivo en la sociedad. <br> 
-    Al mismo tiempo, brindamos a las organizaciones una herramienta para visibilizar sus iniciativas en una plataforma que centraliza los proyectos para generar un mayor alcance.
+    <!-- SOBRE NOSOTROS -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Sobre Nosotros</h2>
+        <p class="espaciado-texto text-center fs-5">
+            En <strong>Tu Granito de Arena</strong> creemos que cada aporte cuenta. Conectamos personas solidarias con ONGs y proyectos de impacto social para crear un cambio real.
+        </p>
 
-    Ya sea apoyando la educación, el medio ambiente, la salud o cualquier otra causa, en Tu Granito de Arena cada aporte cuenta. Juntos, podemos construir un mundo mejor. <br>
+        <!-- VALORES -->
+        <div class="row text-center mt-5">
+            <div class="col-md-4 valores-card">
+                <div class="valores-icon">🌍</div>
+                <h4>Transparencia</h4>
+                <p>Seguimiento y reporte detallado de cada proyecto y donación.</p>
+            </div>
+            <div class="col-md-4 valores-card">
+                <div class="valores-icon">🤝</div>
+                <h4>Compromiso</h4>
+                <p>ONGs verificadas que garantizan un impacto verdadero y seguro.</p>
+            </div>
+            <div class="col-md-4 valores-card">
+                <div class="valores-icon">💡</div>
+                <h4>Innovación</h4>
+                <p>Plataforma simple y rápida para donar de manera efectiva.</p>
+            </div>
+        </div>
 
-    ¿Listo para hacer la diferencia? ¡Explora los proyectos y aporta tu granito de arena para la causa que más te guste!
-</h3>
-	
-	</div>
+        <!-- METRICAS DE IMPACTO -->
+        <div class="metricas text-center mt-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>+500</h3>
+                    <p>Donadores Activos</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>+20</h3>
+                    <p>Proyectos en Curso</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>+1000</h3>
+                    <p>Vidas Impactadas</p>
+                </div>
+            </div>
+        </div>
 
-	<!-- FOOTER -->
-	<footer>
-		<div class="container">
-			<p>&copy; 2025 Granito de Arena. Todos los derechos reservados.</p>
-		</div>
-	</footer>
+        <!-- TESTIMONIO -->
+        <div class="testimonio text-center mt-5">
+            <img src="https://images.unsplash.com/photo-1594824476966-c173e9bba1f4?fit=crop&w=400&q=60" alt="Testimonio">
+            <p class="fst-italic">"Gracias a Tu Granito de Arena, pude apoyar a una causa que realmente me importa. ¡Es increíble ver el impacto de mi donación!"</p>
+            <p><strong>- María González</strong></p>
+        </div>
 
-	<script>
-        function copiarEnlace() {
-            const enlace = window.location.href;
-            navigator.clipboard.writeText(enlace).then(() => {
-                document.getElementById('mensajeCopiado').style.display = 'block';
-                setTimeout(() => {
-                    document.getElementById('mensajeCopiado').style.display = 'none';
-                }, 2000);
-            }).catch(err => {
-                alert('No se pudo copiar el enlace. Por favor, inténtalo manualmente.');
-                console.error('Error al copiar el enlace:', err);
-            });
-        }
-    </script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- LLAMADO A LA ACCIÓN -->
+        <div class="text-center mt-5">
+            <h3 class="text-primary fw-bold">¿Listo para hacer la diferencia?</h3>
+            <p class="fs-5">Explora los proyectos y aporta tu granito de arena hoy mismo.</p>
+            <a href="/proyectos" class="btn cta-button">Explorar Proyectos</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Granito de Arena. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
