@@ -15,25 +15,26 @@ body {
 
 .hero {
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-	url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+		url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')
+		center/cover no-repeat;
 	color: white;
 	height: 100vh;
 	display: flex;
-	align-items: flex-start; /* Alinea el contenido hacia arriba */
+	align-items: flex-start; 
 	text-align: left;
-	padding: 20px 5%; /* Reduje el padding superior */
+	padding: 20px 5%;
 	position: relative;
 }
 
 .hero-content {
 	max-width: 600px;
-	margin-top: 80px; /* Ajusta este valor para alinear con los botones */
+	margin-top: 80px;
 }
 
 .hero h1 {
 	font-size: 3.5rem;
 	font-weight: bold;
-	margin: 0; /* Elimina el margen predeterminado del h1 */
+	margin: 0;
 }
 
 .hero p {
@@ -86,21 +87,27 @@ body {
 	right: 5%;
 	width: 45%;
 	height: auto;
-	border-radius: 20px; 
-	overflow: hidden; /* Para que las imágenes respeten el border-radius */
+	border-radius: 20px;
+	overflow: hidden; 
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .carousel-container .carousel-item img {
-	height: 400px; 
+	height: 400px;
 	object-fit: cover;
 	border-radius: 20px;
 }
 
 .carousel-caption .btn {
-    font-size: 0.9rem;
-    padding: 5px 10px;
-    border-radius: 15px;
+	font-size: 0.9rem;
+	padding: 5px 10px;
+	border-radius: 15px;
+}
+
+.carousel-caption {
+	background-color: rgba(0, 0, 0, 0.5); 
+	padding: 10px;
+	border-radius: 10px;
 }
 
 footer {
@@ -108,7 +115,6 @@ footer {
 	color: white;
 	padding: 5px 0;
 	text-align: center;
-	
 	bottom: 0;
 	width: 100%;
 }
@@ -129,7 +135,6 @@ footer {
 			<h1>Tu aporte, un Granito de Arena</h1>
 			<p>Ayuda a transformar vidas financiando proyectos de impacto
 				social.</p>
-			<a href="#proyectos" class="btn btn-yellow">Proyectos destacados</a>
 		</div>
 
 		<!--Carrusel -->
@@ -145,7 +150,8 @@ footer {
 							<div class="carousel-caption d-none d-md-block">
 								<h5>Educación para todos</h5>
 								<p>Financia becas para niños de escasos recursos.</p>
-								<a href="/detalleProyecto/1" class="btn btn-yellow btn-sm">Ver más</a>
+								<a href="/detalleProyecto/1" class="btn btn-yellow btn-sm">Ver
+									más</a>
 							</div>
 						</div>
 					</div>
@@ -156,7 +162,8 @@ footer {
 						<div class="carousel-caption d-none d-md-block">
 							<h5>Agua limpia</h5>
 							<p>Lleva agua potable a comunidades necesitadas.</p>
-							<a href="/detalleProyecto/1" class="btn btn-yellow btn-sm">Ver más</a>	
+							<a href="/detalleProyecto/1" class="btn btn-yellow btn-sm">Ver
+								más</a>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -166,7 +173,8 @@ footer {
 						<div class="carousel-caption d-none d-md-block">
 							<h5>Energía renovable</h5>
 							<p>Instala paneles solares en zonas rurales.</p>
-						    <a href="/detalleProyecto/1" class="btn btn-yellow btn-sm">Ver más</a>
+							<a href="/detalleProyecto/1" class="btn btn-yellow btn-sm">Ver
+								más</a>
 						</div>
 					</div>
 				</div>
