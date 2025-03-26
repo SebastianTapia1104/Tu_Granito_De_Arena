@@ -187,7 +187,7 @@
         <div class="text-center mt-5">
             <h3 class="text-primary fw-bold">¿Listo para hacer la diferencia?</h3>
             <p class="fs-5">Explora los proyectos y aporta tu granito de arena hoy mismo.</p>
-            <a href="/proyectos" class="btn cta-button">Explorar Proyectos</a>
+            <a href="/dashboard" class="btn cta-button">Explorar Proyectos</a>
         </div>
     </div>
 
