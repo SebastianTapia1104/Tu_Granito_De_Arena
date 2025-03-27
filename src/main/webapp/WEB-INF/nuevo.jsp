@@ -9,28 +9,44 @@
     <meta charset="UTF-8">
     <title>Agregar Nuevo Proyecto</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">    
 
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .form-container {
-            max-width: 700px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .form-title {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .btn-submit {
-            width: 100%;
-        }
+body {
+    background: linear-gradient(to top, #0056b3, #ffc107);
+    font-family: 'Arial', sans-serif;
+}
+.form-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+.form-container:hover {
+    transform: scale(1.02);
+}
+.form-title {
+    text-align: center;
+    font-weight: bold;
+    color: #0056b3;
+}
+.btn-submit {
+    width: 100%;
+    background-color: #0056b3;
+    border: none;
+    color: white;
+}
+.btn-submit:hover {
+    background-color: #004494;
+}
+.input-group-text {
+    background-color: #ffc107;
+    color: black;
+    font-weight: bold;
+}
     </style>
 </head>
 <body>
@@ -42,7 +58,7 @@
         <!-- Formulario con Spring -->
         <form:form modelAttribute="nuevoProyecto" action="/crear" method="POST">
 
-            <!-- Nombre Proyecto -->
+<!-- Nombre Proyecto -->
             <div class="mb-3">
                 <label for="nombreProyecto" class="form-label">Nombre del Proyecto</label>
                 <form:input path="nombreProyecto" class="form-control" id="nombreProyecto" minlength="5" required="true"/>
@@ -53,6 +69,7 @@
                 <label for="descripcionProyecto" class="form-label">Descripción del Proyecto</label>
                 <form:textarea path="descripcionProyecto" class="form-control" id="descripcionProyecto" rows="4" required="true"/>
             </div>
+
 
             <!-- Meta Proyecto -->
             <div class="mb-3">
@@ -76,11 +93,24 @@
                 <form:input path="datosBancarios" class="form-control" id="datosBancarios" required="true"/>
             </div>
 
-            <!-- Banco -->
-            <div class="mb-3">
-                <label for="banco" class="form-label">Banco</label>
-                <form:input path="banco" class="form-control" id="banco" required="true"/>
-            </div>
+<!-- Banco -->
+<div class="mb-3">
+    <label for="banco" class="form-label">Banco</label>
+    <form:select path="banco" class="form-select" id="banco" required="true">
+        <form:option value="">Selecciona tu banco</form:option>
+        <form:option value="Banco de Chile">Banco de Chile</form:option>
+        <form:option value="Banco Estado">Banco Estado</form:option>
+        <form:option value="Santander">Santander</form:option>
+        <form:option value="Scotiabank">Scotiabank</form:option>
+        <form:option value="Banco BCI">Banco BCI</form:option>
+        <form:option value="Banco Itaú">Banco Itaú</form:option>
+        <form:option value="Banco Security">Banco Security</form:option>
+        <form:option value="Banco Falabella">Banco Falabella</form:option>
+        <form:option value="Banco Ripley">Banco Ripley</form:option>
+        <form:option value="Banco Consorcio">Banco Consorcio</form:option>
+    </form:select>
+</div>
+
 
             <!-- Tipo de Cuenta -->
             <div class="mb-3">

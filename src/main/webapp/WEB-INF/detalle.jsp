@@ -218,11 +218,9 @@ footer {
 						<strong>${proyecto.cantidadRecaudada} CLP</strong> recaudados
 					</p>
 					<p class="text-muted mb-3">
-						<strong>Meta:</strong> ${proyecto.metaProyecto} USD
+						<strong>Meta:</strong> ${proyecto.metaProyecto} CLP
 					</p>
-					<p class="text-muted">${proyecto.donadores.size()}personas han
-						aportado</p>
-
+					<p class="text-muted">${proyecto.donaciones.stream().map(d -> d.getUsuario()).distinct().count()} personas han aportado</p>
 					<!-- Barra de Progreso -->
 					<div class="progress mb-3">
 						<div class="progress-bar" role="progressbar"
@@ -267,7 +265,7 @@ footer {
 			<c:forEach items="${proyecto.donaciones}" var="donacion">
 				<p>
 					<i class="fas fa-user-circle me-2"></i><strong>${donacion.usuario.nombre}:</strong>
-					ha donado <strong>${donacion.valor} USD</strong>
+					ha donado <strong>${donacion.valor} CLP</strong>
 				</p>
 			</c:forEach>
 		</section>

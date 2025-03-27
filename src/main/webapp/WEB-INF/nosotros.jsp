@@ -178,7 +178,7 @@
 
         <!-- TESTIMONIO -->
         <div class="testimonio text-center mt-5">
-            <img src="https://images.unsplash.com/photo-1594824476966-c173e9bba1f4?fit=crop&w=400&q=60" alt="Testimonio">
+            <img src="https://www.aciprensa.com/imagespp/PatriciaSandoval_ArzobispadoPiura_151116.jpg" alt="Testimonio">
             <p class="fst-italic">"Gracias a Tu Granito de Arena, pude apoyar a una causa que realmente me importa. ¡Es increíble ver el impacto de mi donación!"</p>
             <p><strong>- María González</strong></p>
         </div>
@@ -187,7 +187,7 @@
         <div class="text-center mt-5">
             <h3 class="text-primary fw-bold">¿Listo para hacer la diferencia?</h3>
             <p class="fs-5">Explora los proyectos y aporta tu granito de arena hoy mismo.</p>
-            <a href="/proyectos" class="btn cta-button">Explorar Proyectos</a>
+            <a href="/dashboard" class="btn cta-button">Explorar Proyectos</a>
         </div>
     </div>
 
