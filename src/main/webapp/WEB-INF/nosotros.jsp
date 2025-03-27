@@ -30,8 +30,36 @@
         font-size: 2rem;
     }
 
+    /* Carrusel */
+    .carousel-container {
+        width: 65%;
+        height: auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        display: inline-block
+    }
+    
+    .carousel-container .carousel-item img {
+        height: 400px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+    
+    .carousel-caption {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+    }
+    
+    .carousel-caption .btn {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+        border-radius: 15px;
+    }
+    
     .hero {
-        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://previews.123rf.com/images/lkeskinen/lkeskinen1701/lkeskinen170118866/70473027-se-aceptan-donaciones-sello-de-goma-dise%C3%B1o-de-grunge-con-los-rasgu%C3%B1os-polvo-los-efectos-se-pueden.jpg') center/cover no-repeat;
+        background: url('https://www.terrenosvillarrica.cl/imagenes/parcelas-villarrica.jpg') center/cover;
         color: white;
         padding: 100px 0;
         text-align: center;
@@ -125,10 +153,43 @@
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <div class="container">
-            <h1>Transformando la solidaridad en acción</h1>
-            <p class="lead">Únete a una comunidad que cambia vidas, una donación a la vez.</p>
-            <a href="/proyectos" class="btn cta-button mt-3">Explorar Proyectos</a>
+        <div class="carousel-container">
+            <div id="proyectosCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" class="d-block w-100" alt="Proyecto educación">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Educación para todos</h5>
+                            <p>Financia becas para niños de escasos recursos.</p>
+                            <a href="/dashboard" class="btn cta-button mt-3">Explorar Proyectos</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644" class="d-block w-100" alt="Proyecto agua">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Agua limpia</h5>
+                            <p>Lleva agua potable a comunidades necesitadas.</p>
+                            <a href="/dashboard" class="btn cta-button mt-3">Explorar Proyectos</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34" class="d-block w-100" alt="Proyecto energía">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Energía renovable</h5>
+                            <p>Instala paneles solares en zonas rurales.</p>
+                            <a href="/dashboard" class="btn cta-button mt-3">Explorar Proyectos</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#proyectosCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#proyectosCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
         </div>
     </section>
 

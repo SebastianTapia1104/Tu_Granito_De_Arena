@@ -30,28 +30,8 @@
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                          url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
             color: white;
-            height: 100vh;
-            display: flex;
-            align-items: flex-start;
-            text-align: left;
-            padding: 20px 5%;
-            position: relative;
-        }
-        
-        .hero-content {
-            max-width: 600px;
-            margin-top: 80px;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin: 0;
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-top: 20px;
+	        padding: 100px 0;
+	        text-align: center;
         }
         
         /* Botones */
@@ -104,40 +84,36 @@
         /* Contenedor de botones */
         .button-container {
             position: absolute;
-            top: 20px;
             right: 20px;
             z-index: 1000;
         }
         
-        /* Carrusel */
         .carousel-container {
-            position: absolute;
-            bottom: 5%;
-            right: 5%;
-            width: 45%;
-            height: auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .carousel-container .carousel-item img {
-            height: 400px;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-        
-        .carousel-caption {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 10px;
-        }
-        
-        .carousel-caption .btn {
-            font-size: 0.9rem;
-            padding: 5px 10px;
-            border-radius: 15px;
-        }
+        width: 65%;
+        height: auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        display: inline-block
+    }
+    
+    .carousel-container .carousel-item img {
+        height: 400px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+    
+    .carousel-caption {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+    }
+    
+    .carousel-caption .btn {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+        border-radius: 15px;
+    }
         
         /* Sección de contenido */
         .espaciado-texto {
@@ -234,22 +210,22 @@
     </style>
 </head>
 <body>
+	<!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="/">Granito de Arena</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="button-container">
+	            <button class="btn btn-yellow me-2" data-bs-toggle="modal" data-bs-target="#usuarioModal">Usuario</button>
+	            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#empresaModal">Empresa</button>
+        	</div>
+        </div>
+    </nav>
 
-    <!-- Hero Section -->
+    <!-- HERO SECTION -->
     <section class="hero">
-        <!-- Botones de acceso -->
-        <div class="button-container">
-            <button class="btn btn-yellow me-2" data-bs-toggle="modal" data-bs-target="#usuarioModal">Usuario</button>
-            <button class="btn btn-yellow" data-bs-toggle="modal" data-bs-target="#empresaModal">Empresa</button>
-        </div>
-
-        <div class="hero-content">
-            <h1>Tu aporte, un Granito de Arena</h1>
-            <p>Únete a una comunidad que cambia vidas, una donación a la vez.</p>
-            <a href="#ayuda" class="btn cta-button mt-3">Aporta tu granito</a>
-        </div>
-
-        <!-- Carrusel de proyectos -->
         <div class="carousel-container">
             <div id="proyectosCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -258,7 +234,7 @@
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Educación para todos</h5>
                             <p>Financia becas para niños de escasos recursos.</p>
-                            <a href="/detalleProyecto/1" class="btn btn-yellow btn-sm">Ver más</a>
+                            <button class="btn cta-button" data-bs-toggle="modal" data-bs-target="#loginRequiredModal">Explorar Proyectos</button>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -266,7 +242,7 @@
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Agua limpia</h5>
                             <p>Lleva agua potable a comunidades necesitadas.</p>
-                            <a href="/detalleProyecto/2" class="btn btn-yellow btn-sm">Ver más</a>
+                            <button class="btn cta-button" data-bs-toggle="modal" data-bs-target="#loginRequiredModal">Explorar Proyectos</button>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -274,7 +250,7 @@
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Energía renovable</h5>
                             <p>Instala paneles solares en zonas rurales.</p>
-                            <a href="/detalleProyecto/3" class="btn btn-yellow btn-sm">Ver más</a>
+                            <button class="btn cta-button" data-bs-toggle="modal" data-bs-target="#loginRequiredModal">Explorar Proyectos</button>
                         </div>
                     </div>
                 </div>
@@ -290,39 +266,34 @@
         </div>
     </section>
 
-    <!-- Contenido principal -->
+    <!-- SOBRE NOSOTROS -->
     <div class="container mt-5">
-        <!-- Sección Sobre Nosotros -->
-        <section>
-            <h2 class="text-center mb-4">Sobre Nosotros</h2>
-            <p class="espaciado-texto text-center fs-5">
-                En <strong>Tu Granito de Arena</strong> creemos que cada aporte cuenta. Conectamos personas solidarias con ONGs y proyectos de impacto social para crear un cambio real.
-            </p>
-        </section>
+        <h2 class="text-center mb-4">Sobre Nosotros</h2>
+        <p class="espaciado-texto text-center fs-5">
+            En <strong>Tu Granito de Arena</strong> creemos que cada aporte cuenta. Conectamos personas solidarias con ONGs y proyectos de impacto social para crear un cambio real.
+        </p>
 
-        <!-- Sección de Valores -->
-        <section class="mt-5">
-            <div class="row text-center">
-                <div class="col-md-4 valores-card">
-                    <div class="valores-icon">🌍</div>
-                    <h4>Transparencia</h4>
-                    <p>Seguimiento y reporte detallado de cada proyecto y donación.</p>
-                </div>
-                <div class="col-md-4 valores-card">
-                    <div class="valores-icon">🤝</div>
-                    <h4>Compromiso</h4>
-                    <p>ONGs verificadas que garantizan un impacto verdadero y seguro.</p>
-                </div>
-                <div class="col-md-4 valores-card">
-                    <div class="valores-icon">💡</div>
-                    <h4>Innovación</h4>
-                    <p>Plataforma simple y rápida para donar de manera efectiva.</p>
-                </div>
+        <!-- VALORES -->
+        <div class="row text-center mt-5">
+            <div class="col-md-4 valores-card">
+                <div class="valores-icon">🌍</div>
+                <h4>Transparencia</h4>
+                <p>Seguimiento y reporte detallado de cada proyecto y donación.</p>
             </div>
-        </section>
+            <div class="col-md-4 valores-card">
+                <div class="valores-icon">🤝</div>
+                <h4>Compromiso</h4>
+                <p>ONGs verificadas que garantizan un impacto verdadero y seguro.</p>
+            </div>
+            <div class="col-md-4 valores-card">
+                <div class="valores-icon">💡</div>
+                <h4>Innovación</h4>
+                <p>Plataforma simple y rápida para donar de manera efectiva.</p>
+            </div>
+        </div>
 
-        <!-- Sección de Métricas -->
-        <section class="metricas text-center mt-5">
+        <!-- METRICAS DE IMPACTO -->
+        <div class="metricas text-center mt-5">
             <div class="row">
                 <div class="col-md-4">
                     <h3>+500</h3>
@@ -337,14 +308,14 @@
                     <p>Vidas Impactadas</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Sección de Testimonio -->
-        <section class="testimonio text-center mt-5">
-            <img src="https://img.freepik.com/vector-premium/ilustracion-plana-vectorial-gradaciones-purpura-azul-profilo-usuario-avatar-imagen-perfil-icono-persona-adecuada-perfiles-redes-sociales-iconos-protectores-pantalla-como-plantilla-x9xa_719432-1922.jpg?w=360" alt="Foto de perfil">
+        <!-- TESTIMONIO -->
+        <div class="testimonio text-center mt-5">
+            <img src="https://www.aciprensa.com/imagespp/PatriciaSandoval_ArzobispadoPiura_151116.jpg" alt="Testimonio">
             <p class="fst-italic">"Gracias a Tu Granito de Arena, pude apoyar a una causa que realmente me importa. ¡Es increíble ver el impacto de mi donación!"</p>
             <p><strong>- María González</strong></p>
-        </section>
+        </div>
 
         <!-- Llamado a la acción -->
         <section class="text-center mt-5">
